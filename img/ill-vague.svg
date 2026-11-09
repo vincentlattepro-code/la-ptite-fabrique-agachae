@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 360">
+  <defs>
+    <linearGradient id="pot" x1="0" x2="1"><stop offset="0" stop-color="#e7c3bc"/><stop offset=".45" stop-color="#f3dcd6"/><stop offset="1" stop-color="#dcaea6"/></linearGradient>
+    <radialGradient id="wax" cx=".5" cy=".45" r=".6"><stop offset="0" stop-color="#fbf6ea"/><stop offset="1" stop-color="#eee3cb"/></radialGradient>
+    <clipPath id="body"><path d="M88 150 C88 230 96 290 128 300 L272 300 C304 290 312 230 312 150 Z"/></clipPath>
+  </defs>
+  <ellipse cx="200" cy="306" rx="128" ry="14" fill="#d9c7bb" opacity=".55"/>
+  <path d="M88 150 C88 230 96 290 128 300 L272 300 C304 290 312 230 312 150 Z" fill="url(#pot)"/>
+  <g clip-path="url(#body)" fill="none" stroke="#d29f97" stroke-width="5" opacity=".55" stroke-linecap="round">
+    <path d="M108 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/><path d="M140 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/>
+    <path d="M172 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/><path d="M204 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/>
+    <path d="M236 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/><path d="M268 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/>
+    <path d="M300 150 q10 25 0 50 q-10 25 0 50 q10 25 0 50"/>
+  </g>
+  <ellipse cx="200" cy="150" rx="112" ry="27" fill="#e2b9b1"/>
+  <ellipse cx="200" cy="152" rx="98" ry="20" fill="url(#wax)"/>
+  <path d="M200 147 q-2 -10 1 -20" stroke="#5b4a3f" stroke-width="3.2" fill="none" stroke-linecap="round"/>
+</svg>

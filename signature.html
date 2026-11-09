@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr" data-version="v2">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Signature · La P’tite Fabrique d’Agachaé</title>
+<meta name="description" content="Bougies parfumées aux fragrances de Grasse, jesmonite marbrée et bijoux en pâte polymère, faits main dans le Pays de Caux. Idées cadeaux, calendrier de l’Avent et pochettes surprises.">
+<meta property="og:title" content="La P’tite Fabrique d’Agachaé · Bougies, jesmonite & bijoux faits main">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Store","name":"La P’tite Fabrique d’Agachaé","founder":{"@type":"Person","name":"Lucie"},"address":{"@type":"PostalAddress","addressLocality":"Pays de Caux","addressRegion":"Normandie","addressCountry":"FR"},"email":"laptitefabriquedagachae@gmail.com","sameAs":["https://www.instagram.com/laptitefabriquedagachae"]},
+{"@type":"Product","name":"Douceur Camélia","description":"Bougie parfumée coulée à la main dans un contenant en jesmonite. Environ 20 h de combustion.","brand":{"@type":"Brand","name":"La P’tite Fabrique d’Agachaé"},"offers":{"@type":"Offer","price":"22.00","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}]}
+</script>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/shop.css">
+<style>
+/* Version 2 · Signature — boutique éditoriale multi-pages : arches du catalogue, grands titres Playfair, rythme magazine */
+.announce { background: var(--ink); color: #fff; height: 38px; overflow: hidden; position: relative; font: 500 12.5px/38px var(--f-label); letter-spacing: .06em; text-align: center; }
+.announce p { position: absolute; inset: 0; opacity: 0; transform: translateY(10px); transition: opacity .5s, transform .5s; }
+.announce p.on { opacity: 1; transform: none; }
+header.site { position: sticky; top: 0; z-index: 60; background: rgba(250,249,245,.94); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+header.site .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 88px; gap: 16px; }
+.nav-l { display: flex; gap: 6px; align-items: center; }
+.nav-l > a, .nav-l > .mm > button { text-decoration: none; border: 0; background: none; font: 600 12.5px/1 var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); padding: 12px 12px; border-radius: 999px; }
+.nav-l > a:hover, .nav-l > .mm > button:hover, .nav-l a.active { background: var(--blush); }
+.brand img { width: 70px; height: 70px; }
+.nav-r { justify-self: end; display: flex; gap: 2px; color: var(--ink); }
+.mm { position: static; }
+.mm-panel::before { content: ""; position: absolute; left: 0; right: 0; top: -34px; height: 34px; }
+.mm-panel { position: absolute; left: 0; right: 0; top: 100%; background: var(--cream); border-bottom: 1px solid var(--line); box-shadow: 0 30px 40px rgba(80,68,68,.08); opacity: 0; pointer-events: none; transform: translateY(-8px); transition: opacity .25s, transform .25s; }
+.mm:hover .mm-panel, .mm:focus-within .mm-panel, .mm.open .mm-panel { opacity: 1; pointer-events: auto; transform: none; }
+.mm-panel .wrap { display: grid; grid-template-columns: repeat(3, 1fr) 1.3fr; gap: 30px; padding-block: 30px 34px; min-height: 0; align-items: start; }
+.mm-panel h4 { font-size: 1.1rem; margin-bottom: 10px; }
+.mm-panel h4 a { text-decoration: none; }
+.mm-panel ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 7px; font-size: 14.5px; }
+.mm-panel ul a { text-decoration: none; color: var(--muted); }
+.mm-panel ul a:hover { color: var(--terra-ink); }
+.mm-feat { display: grid; grid-template-columns: 120px 1fr; gap: 16px; align-items: center; background: var(--blush); border-radius: 18px; padding: 16px; text-decoration: none; }
+.mm-feat img { width: 120px; height: 120px; object-fit: contain; }
+.mm-feat strong { font-family: var(--f-display); font-size: 1.2rem; color: var(--ink); display: block; margin: 6px 0; }
+.burger { display: none; }
+.mnav { display: none; }
+
+main { min-height: 60vh; }
+section.blk { padding-block: 84px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 32px; flex-wrap: wrap; }
+.sec-head h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); }
+.sec-head p { color: var(--muted); max-width: 50ch; }
+.rail-nav { display: flex; gap: 8px; }
+.rail-nav button { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: #fff; display: grid; place-items: center; color: var(--ink); }
+.rail-nav svg { width: 20px; height: 20px; }
+
+/* Héros éditorial */
+.hero { position: relative; overflow: hidden; padding-block: 56px 90px; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: 50px; align-items: center; }
+.hero h1 { font-size: clamp(2.4rem, 5.2vw, 4.3rem); font-weight: 500; letter-spacing: -.01em; margin: 18px 0 22px; }
+.hero h1 em { color: var(--terra-ink); }
+.hero .lead { font-size: 1.1rem; color: var(--muted); max-width: 46ch; }
+.hero .btns { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+.hero .stats { display: flex; gap: 30px; margin-top: 40px; flex-wrap: wrap; }
+.hero .stats div { display: grid; }
+.hero .stats strong { font-family: var(--f-display); font-size: 1.7rem; color: var(--ink); font-weight: 600; }
+.hero .stats span { font-size: 13px; color: var(--muted); }
+.arches { position: relative; height: 560px; }
+.arch { position: absolute; border-radius: 999px 999px 24px 24px; overflow: hidden; display: grid; place-items: end center; box-shadow: 0 30px 60px rgba(110,72,56,.14); }
+.arch img { width: 80%; margin-bottom: 10%; filter: drop-shadow(0 16px 18px rgba(80,50,40,.2)); }
+.arch.a1 { left: 0; top: 40px; width: 52%; height: 470px; background: linear-gradient(180deg, #e7b49d, var(--terra)); }
+.arch.a1 img { width: 70%; }
+.arch.a2 { right: 0; top: 0; width: 44%; height: 330px; background: var(--rose); }
+.arch.a3 { right: 4%; bottom: 0; width: 38%; height: 200px; background: var(--sand); border-radius: 24px; }
+.arch.a3 img { width: 62%; margin-bottom: 12%; }
+.seal { position: absolute; left: 44%; top: 0; width: 120px; height: 120px; z-index: 2; }
+.seal svg { width: 100%; height: 100%; animation: spin 26s linear infinite; }
+.seal img { position: absolute; inset: 30%; width: 40%; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.hero .deco { position: absolute; right: -80px; bottom: -40px; width: 380px; opacity: .45; pointer-events: none; }
+
+.marquee { background: var(--terra); color: #fff; overflow: hidden; padding: 16px 0; }
+.marquee .track { display: flex; gap: 40px; width: max-content; animation: marq 32s linear infinite; font-family: var(--f-display); font-style: italic; font-size: 1.35rem; white-space: nowrap; }
+.marquee span::after { content: "✦"; font-style: normal; margin-left: 40px; opacity: .7; font-size: .9rem; vertical-align: middle; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+.cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.catc { position: relative; text-decoration: none; display: grid; gap: 14px; }
+.catc .ar { aspect-ratio: 3 / 4; border-radius: 999px 999px 20px 20px; background: var(--blush); display: grid; place-items: center; overflow: hidden; transition: background .3s; }
+.catc:nth-child(2) .ar { background: var(--rose); } .catc:nth-child(3) .ar { background: #efe2d4; } .catc:nth-child(4) .ar { background: #f1ddd2; }
+.catc .ar img { width: 72%; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+.catc:hover .ar img { transform: translateY(-8px) scale(1.04); }
+.catc h3 { font-size: 1.3rem; display: flex; justify-content: space-between; align-items: center; }
+.catc h3::after { content: "→"; font-family: var(--f-body); color: var(--terra-ink); transition: transform .3s; }
+.catc:hover h3::after { transform: translateX(6px); }
+.catc p { font-size: 14px; color: var(--muted); margin-top: -8px; }
+
+.spot { background: var(--blush); }
+.spot .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.spot-pic { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+.spot-pic::before { content: ""; position: absolute; inset: 4% 8% 0; border-radius: 999px 999px 30px 30px; background: var(--rose); }
+.spot-pic img { position: relative; width: 74%; filter: drop-shadow(0 30px 30px rgba(110,72,56,.22)); }
+.spot h2 { font-size: clamp(2rem, 3.6vw, 3rem); margin: 14px 0 18px; }
+.spot .notes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 26px 0; }
+.spot .notes div { background: var(--cream); border-radius: 16px; padding: 14px; }
+.spot .notes strong { display: block; font-family: var(--f-display); color: var(--ink); font-size: 1.1rem; }
+.spot .notes span { font-size: 13px; color: var(--muted); }
+.spot .btns { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.scents { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+.scent { border-radius: 20px; padding: 24px 18px 22px; background: #fff; border: 1px solid var(--line); display: grid; gap: 10px; align-content: start; }
+.scent i { width: 54px; height: 54px; border-radius: 50%; display: block; box-shadow: inset 0 -6px 12px rgba(0,0,0,.08); }
+.scent h3 { font-size: 1.15rem; }
+.scent p { font-size: 13.5px; color: var(--muted); }
+
+.second { background: var(--ink); color: rgba(255,255,255,.88); overflow: hidden; }
+.second .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: 50px; align-items: center; }
+.second h2 { color: #fff; font-size: clamp(1.9rem, 3.4vw, 2.8rem); margin: 14px 0 16px; }
+.second .eyebrow { color: var(--rose); }
+.second ol { list-style: none; padding: 0; margin: 26px 0 0; display: grid; gap: 14px; counter-reset: s; }
+.second li { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; counter-increment: s; }
+.second li::before { content: counter(s); width: 40px; height: 40px; border-radius: 50%; border: 1px solid rgba(255,255,255,.35); display: grid; place-items: center; font-family: var(--f-display); }
+.second .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.second .duo figure { margin: 0; background: rgba(255,255,255,.06); border-radius: 22px; padding: 22px; display: grid; gap: 12px; text-align: center; }
+.second .duo img { height: 200px; object-fit: contain; margin-inline: auto; }
+.second .duo figcaption { font-size: 13.5px; }
+
+.insta { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.insta a { position: relative; aspect-ratio: 1; border-radius: 16px; display: grid; place-items: center; overflow: hidden; }
+.insta a img { width: 72%; transition: transform .5s; }
+.insta a:hover img { transform: scale(1.08) rotate(-3deg); }
+.insta a::after { content: ""; position: absolute; inset: 0; background: rgba(80,68,68,0); transition: background .3s; }
+.insta a:hover::after { background: rgba(80,68,68,.12); }
+
+.news { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; background: var(--rose); border-radius: 30px; padding: 50px; position: relative; overflow: hidden; }
+.news h2 { font-size: clamp(1.6rem, 2.8vw, 2.2rem); }
+.news p { color: var(--ink); margin-top: 8px; }
+.news form { display: flex; gap: 10px; flex-wrap: wrap; position: relative; z-index: 1; }
+.news input { flex: 1 1 220px; min-height: 52px; border-radius: 999px; border: 0; padding: 0 22px; background: #504444; color: #fff; caret-color: #fff; }
+.news input::placeholder { color: rgba(255,255,255,.88); opacity: 1; }
+.news .deco { position: absolute; right: -60px; bottom: -70px; width: 260px; opacity: .35; }
+
+/* Atelier */
+.page-head { padding-block: 56px 30px; text-align: center; }
+.page-head h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 500; margin-top: 12px; }
+.page-head p { color: var(--muted); max-width: 60ch; margin: 16px auto 0; }
+.story { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+.story .logo-big { width: min(380px, 100%); margin-inline: auto; }
+.story p + p { margin-top: 14px; }
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.step { background: var(--blush); border-radius: 22px; padding: 26px; display: grid; gap: 10px; align-content: start; }
+.step b { font-family: var(--f-display); font-size: 2.4rem; color: var(--terra); font-weight: 500; line-height: 1; }
+.step h3 { font-size: 1.25rem; }
+.step p { font-size: 14.5px; color: var(--muted); }
+.quote { text-align: center; max-width: 760px; margin: 0 auto; }
+.quote p { font-family: var(--f-display); font-style: italic; font-size: clamp(1.4rem, 2.6vw, 2rem); color: var(--ink); line-height: 1.35; }
+.contact-card { background: var(--rose); border-radius: 26px; padding: 34px; display: flex; justify-content: space-between; gap: 20px; align-items: center; flex-wrap: wrap; }
+.contact-card h3 { font-size: 1.5rem; }
+
+footer.site { background: var(--ink); color: rgba(255,255,255,.82); padding-block: 60px 96px; margin-top: 90px; font-size: 14px; }
+footer.site .cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 30px; }
+footer.site .flogo { width: 92px; height: 92px; background: var(--cream); border-radius: 50%; padding: 4px; margin-bottom: 16px; }
+footer.site h4 { color: #fff; font-size: 1.05rem; margin-bottom: 14px; }
+footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+footer.site a { text-decoration: none; }
+footer.site a:hover { text-decoration: underline; }
+footer.site .legal { border-top: 1px solid rgba(255,255,255,.15); margin-top: 40px; padding-top: 20px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 13px; opacity: .8; }
+.pay { display: flex; gap: 6px; flex-wrap: wrap; }
+.pay span { border: 1px solid rgba(255,255,255,.3); border-radius: 6px; padding: 3px 7px; font: 600 11px/1.3 var(--f-label); }
+
+@media (max-width: 1020px) {
+  .hero .wrap, .spot .wrap, .second .wrap, .story { grid-template-columns: 1fr; }
+  .arches { height: 460px; max-width: 560px; width: 100%; margin-inline: auto; }
+  .arch.a1 { height: 400px; } .arch.a2 { height: 280px; }
+  .scents { grid-template-columns: repeat(3, 1fr); }
+  .cats { grid-template-columns: repeat(2, 1fr); }
+  .insta { grid-template-columns: repeat(3, 1fr); }
+  footer.site .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .nav-l { display: none; }
+  .burger { display: inline-grid; justify-self: start; }
+  .mnav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--cream); border-bottom: 1px solid var(--line); padding: 8px 20px 18px; }
+  .mnav.open { display: grid; }
+  .mnav a { text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--f-display); font-size: 1.15rem; color: var(--ink); }
+  .news, .steps { grid-template-columns: 1fr; }
+  .nav-r .hide-m { display: none; }
+}
+@media (max-width: 600px) {
+  section.blk { padding-block: 58px; }
+  .arches { height: 380px; }
+  .arch.a1 { height: 330px; top: 30px; } .arch.a2 { height: 220px; } .arch.a3 { height: 140px; }
+  .seal { width: 90px; height: 90px; }
+  .spot .notes { grid-template-columns: 1fr; }
+  .scents { grid-template-columns: 1fr 1fr; }
+  .second .duo img { height: 130px; }
+  .news { padding: 30px 22px; }
+  footer.site .cols { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="announce" aria-live="polite"><p class="on">Livraison offerte dès 45 € d’achat</p><p>Calendrier de l’Avent 2026 : édition limitée</p><p>Fait main dans le Pays de Caux · Petites séries</p></div>
+<header class="site">
+  <div class="wrap">
+    <nav class="nav-l" aria-label="Menu principal">
+      <div class="mm" id="mm"><button aria-expanded="false" id="mmBtn">Boutique</button>
+        <div class="mm-panel"><div class="wrap">
+          <div><h4><a href="#boutique-bougies">Bougies</a></h4><ul><li><a href="#produit-douceur-camelia">Douceur Camélia</a></li><li><a href="#produit-rose-illuminee">Rose Illuminée</a></li><li><a href="#produit-eclat-d-automne">Éclat d’Automne</a></li><li><a href="#produit-sapin-enchante">Sapin Enchanté</a></li><li><a href="#produit-bulle-d-hiver">Bulle d’Hiver</a></li></ul></div>
+          <div><h4><a href="#boutique-jesmonite">Jesmonite</a></h4><ul><li><a href="#produit-boite-mesange">Boîte Mésange</a></li><li><a href="#produit-grand-coeur">Grand cœur</a></li><li><a href="#produit-vide-poche-ovale">Vide-poche ovale</a></li><li><a href="#produit-boite-grande-rose">Boîte Grande Rose</a></li><li><a href="#boutique-jesmonite">Tout voir</a></li></ul></div>
+          <div><h4><a href="#boutique-bijoux">Bijoux & accessoires</a></h4><ul><li><a href="#produit-pampilles">Pampilles</a></li><li><a href="#produit-creoles-pampilles">Créoles + pampilles</a></li><li><a href="#produit-puces-d-oreilles">Puces d’oreilles</a></li><li><a href="#produit-grande-pince">Pinces à cheveux</a></li><li><a href="#boutique-pochettes">Pochettes & coffrets</a></li></ul></div>
+          <a class="mm-feat" href="#produit-calendrier-avent"><img src="img/ill-calendrier.svg" alt=""><span><span class="eyebrow">Édition limitée</span><strong>Le calendrier de l’Avent</strong><span style="font-size:14px;color:var(--muted)">24 surprises jusqu’à Noël · 95 €</span></span></a>
+        </div></div>
+      </div>
+      <a href="#cadeaux" data-nav="cadeaux">Idées cadeaux</a>
+      <a href="#atelier" data-nav="atelier">L’atelier</a>
+    </nav>
+    <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="#accueil" aria-label="Accueil"><img src="img/logo.webp" alt="La P’tite Fabrique d’Agachaé"></a>
+    <div class="nav-r">
+      <button class="icon-btn" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
+      <a class="icon-btn hide-m" href="#boutique" aria-label="Favoris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10Z"/></svg><span class="count" data-wish-count data-n="0">0</span></a>
+      <button class="icon-btn" data-cart-open aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="count" data-cart-count data-n="0">0</span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu mobile"><a href="#boutique-bougies">Bougies</a><a href="#boutique-jesmonite">Jesmonite</a><a href="#boutique-bijoux">Bijoux & accessoires</a><a href="#boutique-pochettes">Pochettes & coffrets</a><a href="#cadeaux">Idées cadeaux</a><a href="#atelier">L’atelier</a></nav>
+</header>
+
+<main>
+<!-- ============ ACCUEIL ============ -->
+<div data-view="accueil">
+  <section class="hero" aria-labelledby="h1">
+    <img class="deco" src="img/vague.webp" alt="">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">Collection Automne / Hiver 2026</p>
+        <h1 id="h1">L’hiver se raconte <em>à la lueur</em> d’une bougie</h1>
+        <p class="lead">Bougies parfumées aux fragrances de Grasse, jesmonite marbrée et bijoux colorés : chaque pièce est imaginée et façonnée à la main dans mon atelier du Pays de Caux.</p>
+        <div class="btns"><a class="btn" href="#boutique-bougies">Les bougies</a><a class="btn ghost" href="#cadeaux">Idées cadeaux</a></div>
+        <div class="stats"><div><strong>100 %</strong><span>fait main</span></div><div><strong>5</strong><span>parfums de Grasse</span></div><div><strong>6</strong><span>teintes de jesmonite</span></div></div>
+      </div>
+      <div class="arches rv d2" aria-hidden="true">
+        <div class="arch a1"><img src="img/bougie-sapin.webp" alt=""></div>
+        <div class="arch a2"><img src="img/bougie-rose.webp" alt=""></div>
+        <div class="arch a3"><img src="img/grand-coeur.webp" alt=""></div>
+        <div class="seal"><svg viewBox="0 0 120 120"><defs><path id="c" d="M60 60m-46 0a46 46 0 1 1 92 0a46 46 0 1 1-92 0"/></defs><circle cx="60" cy="60" r="58" fill="#faf9f5"/><text font-family="Montserrat, sans-serif" font-size="10.5" font-weight="600" letter-spacing="3.2" fill="#a2654a"><textPath href="#c">FAIT MAIN · PAYS DE CAUX · PETITES SÉRIES ·</textPath></text></svg><img src="img/logo.webp" alt=""></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Bougies parfumées</span><span>Jesmonite marbrée</span><span>Bijoux en pâte polymère</span><span>Petites séries</span><span>Fait main dans le Pays de Caux</span><span>Bougies parfumées</span><span>Jesmonite marbrée</span><span>Bijoux en pâte polymère</span><span>Petites séries</span><span>Fait main dans le Pays de Caux</span></div></div>
+
+  <section class="blk" aria-labelledby="h-cats">
+    <div class="wrap">
+      <div class="sec-head rv"><h2 id="h-cats">Les collections</h2><p>Les collections évoluent au fil des saisons : certaines pièces sont permanentes, d’autres disponibles en quantité limitée.</p></div>
+      <div class="cats">
+        <a class="catc rv" href="#boutique-bougies"><div class="ar"><img src="img/bougie-camelia.webp" alt=""></div><h3>Bougies</h3><p>Coulées à la main, parfums de Grasse</p></a>
+        <a class="catc rv d1" href="#boutique-jesmonite"><div class="ar"><img src="img/boite-mesange.webp" alt=""></div><h3>Jesmonite</h3><p>Boîtes, cœurs et vide-poches</p></a>
+        <a class="catc rv d2" href="#boutique-bijoux"><div class="ar"><img src="img/creoles-pampilles.webp" alt=""></div><h3>Bijoux</h3><p>Pampilles, créoles, puces, pinces</p></a>
+        <a class="catc rv d3" href="#boutique-pochettes"><div class="ar"><img src="img/ill-calendrier.svg" alt=""></div><h3>Coffrets</h3><p>Pochettes surprises et Avent</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk spot" aria-labelledby="h-spot">
+    <div class="wrap">
+      <div class="spot-pic rv"><img src="img/bougie-camelia.webp" alt="Bougie Douceur Camélia"></div>
+      <div class="rv d1">
+        <p class="eyebrow">La bougie signature</p>
+        <h2 id="h-spot">Douceur Camélia</h2>
+        <p>Un camélia sculpté pétale par pétale coiffe une cire parfumée coulée à la main. Quand la bougie est terminée, le contenant en jesmonite devient une boîte à bijoux.</p>
+        <div class="notes"><div><strong>20 h</strong><span>de combustion</span></div><div><strong>Fleur de coton</strong><span>ou l’un des 5 parfums</span></div><div><strong>22 €</strong><span>contenant réutilisable</span></div></div>
+        <div class="btns"><button class="btn" data-add="douceur-camelia">Ajouter au panier · 22 €</button><a class="btn ghost" href="#produit-douceur-camelia">Voir la fiche</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" aria-labelledby="h-season">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">Automne · Noël</p><h2 id="h-season" style="margin-top:10px">Les bougies de saison</h2></div><div class="rail-nav"><button data-rail-nav="r1" data-dir="-1" aria-label="Précédent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 5l-7 7 7 7"/></svg></button><button data-rail-nav="r1" data-dir="1" aria-label="Suivant"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+      <div class="rail rv" id="r1" data-rail="bougies"></div>
+    </div>
+  </section>
+
+  <section class="blk" style="background:var(--blush)" aria-label="Composer ses boucles">
+    <div class="wrap"><div id="composer"></div></div>
+  </section>
+
+  <section class="blk" aria-labelledby="h-scents">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">Fragrances de Grasse</p><h2 id="h-scents" style="margin-top:10px">Choisissez votre parfum</h2></div><p>Chaque bougie existe dans les cinq parfums de la saison. Les parfums évoluent au fil des collections.</p></div>
+      <div class="scents">
+        <a class="scent rv" href="#boutique-bougies" style="text-decoration:none"><i style="background:radial-gradient(circle at 35% 30%,#fff,#ece6dc)"></i><h3>Fleur de coton</h3><p>Linge propre, douceur poudrée</p></a>
+        <a class="scent rv d1" href="#boutique-bougies" style="text-decoration:none"><i style="background:radial-gradient(circle at 35% 30%,#fbefd6,#e3c38f)"></i><h3>Vanille</h3><p>Gourmande et enveloppante</p></a>
+        <a class="scent rv d2" href="#boutique-bougies" style="text-decoration:none"><i style="background:radial-gradient(circle at 35% 30%,#eadff0,#a98fb8)"></i><h3>Violette</h3><p>Florale, délicate, un brin rétro</p></a>
+        <a class="scent rv d3" href="#boutique-bougies" style="text-decoration:none"><i style="background:radial-gradient(circle at 35% 30%,#f0d6bd,#b07a52)"></i><h3>Thé Chai Latte</h3><p>Épices chaudes et lait mousseux</p></a>
+        <a class="scent rv" href="#boutique-bougies" style="text-decoration:none"><i style="background:radial-gradient(circle at 35% 30%,#c9ad97,#6e5040)"></i><h3>Bois de Oud</h3><p>Boisé, profond, réconfortant</p></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk second" aria-labelledby="h-second">
+    <div class="wrap">
+      <div class="rv">
+        <p class="eyebrow">Une seconde vie</p>
+        <h2 id="h-second">La bougie se termine, le contenant reste</h2>
+        <p>J’aime donner une seconde vie à mes créations. Chaque contenant en jesmonite est coulé, poncé et fini à la main pour durer bien après la dernière flamme.</p>
+        <ol><li><span><strong>Profitez</strong> de votre bougie et de son parfum.</span></li><li><span><strong>Nettoyez</strong> le contenant à l’eau chaude une fois la cire terminée.</span></li><li><span><strong>Réutilisez-le</strong> en boîte à bijoux, vide-poche ou objet déco.</span></li></ol>
+      </div>
+      <div class="duo rv d1"><figure><img src="img/bougie-gland.webp" alt=""><figcaption>Éclat d’Automne · bougie</figcaption></figure><figure><img src="img/bougie-gland.webp" alt="" style="transform:scaleX(-1)"><figcaption>Boîte Gland · 13 €</figcaption></figure></div>
+    </div>
+  </section>
+
+  <section class="blk" aria-labelledby="h-insta">
+    <div class="wrap">
+      <div class="sec-head rv"><div><p class="eyebrow">@laptitefabriquedagachae</p><h2 id="h-insta" style="margin-top:10px">Les coulisses de l’atelier</h2></div><a class="btn ghost" href="https://www.instagram.com/laptitefabriquedagachae">Suivre sur Instagram</a></div>
+      <div class="insta rv">
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:var(--rose)" aria-label="Instagram"><img src="img/pampille-ena.webp" alt=""></a>
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:var(--sand)" aria-label="Instagram"><img src="img/bougie-boule.webp" alt=""></a>
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:var(--blush)" aria-label="Instagram"><img src="img/petite-pince-fleurie.webp" alt=""></a>
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:var(--terra)" aria-label="Instagram"><img src="img/petit-coeur.webp" alt=""></a>
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:#efe2d4" aria-label="Instagram"><img src="img/pampille-yse.webp" alt=""></a>
+        <a href="https://www.instagram.com/laptitefabriquedagachae" style="background:var(--rose)" aria-label="Instagram"><img src="img/boite-rose.webp" alt=""></a>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="news rv">
+      <img class="deco" src="img/arche.webp" alt="">
+      <div><h2>Nouveautés, coulisses et dates de marchés</h2><p>Une lettre de temps en temps, jamais plus. Soyez prévenue avant tout le monde des nouvelles collections.</p></div>
+      <form id="newsForm" novalidate><label class="sr-only" for="newsEmail">Votre adresse e-mail</label><input id="newsEmail" type="email" placeholder="Votre adresse e-mail" autocomplete="email"><button class="btn" type="submit">Je m’inscris</button></form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BOUTIQUE ============ -->
+<div data-view="boutique" hidden>
+  <section class="blk" style="padding-top:40px">
+    <div class="wrap">
+      <nav class="crumb" id="shopCrumb" aria-label="Fil d’Ariane"></nav>
+      <div class="shop">
+        <aside class="fside" id="shopFilters" aria-label="Filtres"></aside>
+        <div>
+          <div class="shop-top"><div><h1 id="shopTitle" style="font-size:clamp(2rem,3.4vw,2.8rem)">La boutique</h1><p id="shopCount" style="color:var(--muted)"></p></div>
+            <label><span class="sr-only">Trier</span><select id="sortSel"><option value="featured">Mise en avant</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option><option value="az">De A à Z</option></select></label></div>
+          <div class="grid3" id="shopGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ FICHE PRODUIT ============ -->
+<div data-view="produit" hidden>
+  <section class="blk" style="padding-top:36px"><div class="wrap" id="productMount"></div></section>
+</div>
+
+<!-- ============ IDÉES CADEAUX ============ -->
+<div data-view="cadeaux" hidden>
+  <header class="page-head wrap"><p class="eyebrow">Pour toutes les occasions</p><h1>Idées cadeaux</h1><p>Une attention pour une maîtresse, un coffret pour Noël, une bougie pour une amie : trouvez la bonne création selon votre budget.</p></header>
+  <section class="blk" style="padding-top:20px"><div class="wrap" id="giftMount"></div></section>
+</div>
+
+<!-- ============ ATELIER ============ -->
+<div data-view="atelier" hidden>
+  <header class="page-head wrap"><p class="eyebrow">L’atelier</p><h1>Bienvenue dans mon univers</h1><p>Derrière chaque création, il y a du temps, de la passion et l’envie de vous proposer des pièces réalisées avec soin, de A à Z.</p></header>
+  <section class="blk" style="padding-top:30px">
+    <div class="wrap story">
+      <img class="logo-big rv" src="img/logo.webp" alt="Logo La P’tite Fabrique d’Agachaé">
+      <div class="rv d1">
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:18px">Agathe + Sacha = Agachaé</h2>
+        <p>Je m’appelle Lucie, créatrice de La P’tite Fabrique d’Agachaé et maman de deux enfants, Agathe et Sacha. C’est de leurs prénoms qu’est né « Agachaé », un nom qui représente une partie importante de mon histoire et de mon univers créatif.</p>
+        <p>Je réalise chaque pièce à la main, de la conception aux finitions, avec l’envie de créer des objets doux, poétiques et uniques, pour apporter une touche chaleureuse à votre quotidien, décorer votre intérieur ou offrir.</p>
+      </div>
+    </div>
+  </section>
+  <section class="blk" style="background:var(--cream);padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head rv"><h2>De l’idée à vos mains</h2></div>
+      <div class="steps">
+        <div class="step rv"><b>01</b><h3>La jesmonite</h3><p>Une poudre minérale mélangée à une résine acrylique. Chaque pièce est coulée, poncée et finie à la main ; les marbrures la rendent unique.</p></div>
+        <div class="step rv d1"><b>02</b><h3>La bougie</h3><p>Une cire parfumée aux fragrances de Grasse, coulée à la main dans son contenant en jesmonite, puis laissée à reposer.</p></div>
+        <div class="step rv d2"><b>03</b><h3>Les bijoux</h3><p>Des créations en pâte polymère protégées par une finition en résine UV, pour la brillance et la protection.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="blk"><div class="wrap quote rv"><p>« Une création artisanale est toujours unique. De subtiles variations de couleur, de marbrure ou de finition font tout le charme et l’originalité de chaque pièce. »</p></div></section>
+  <div class="wrap"><div class="contact-card rv"><div><h3>Une commande, une question ?</h3><p>Commandes et renseignements en message privé ou par e-mail : laptitefabriquedagachae@gmail.com</p></div><a class="btn" href="https://www.instagram.com/laptitefabriquedagachae">Écrire sur Instagram</a></div></div>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div><img class="flogo" src="img/logo.webp" alt=""><p>Créations artisanales<br>Pays de Caux · Normandie</p><p style="margin-top:8px">laptitefabriquedagachae@gmail.com</p></div>
+      <div><h4>Boutique</h4><ul><li><a href="#boutique-bougies">Bougies</a></li><li><a href="#boutique-jesmonite">Jesmonite</a></li><li><a href="#boutique-bijoux">Bijoux & accessoires</a></li><li><a href="#boutique-pochettes">Pochettes & coffrets</a></li><li><a href="#cadeaux">Idées cadeaux</a></li></ul></div>
+      <div><h4>Informations</h4><ul><li><a href="#atelier">L’atelier</a></li><li><a href="#atelier">Contact</a></li><li><a href="#accueil">Livraison & retours</a></li><li><a href="#accueil">CGV</a></li><li><a href="#accueil">Mentions légales</a></li></ul></div>
+      <div><h4>Suivez l’atelier</h4><ul><li><a href="https://www.instagram.com/laptitefabriquedagachae">Instagram</a></li><li><a href="https://www.instagram.com/laptitefabriquedagachae">Facebook</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 La P’tite Fabrique d’Agachaé · Fait main en Normandie</span><div class="pay"><span>CB</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>Google Pay</span><span>PayPal</span></div></div>
+  </div>
+</footer>
+
+<div class="search-layer" id="searchLayer" role="dialog" aria-label="Recherche">
+  <div class="search-box"><div class="wrap">
+    <div class="search-row"><label class="sr-only" for="searchInput">Rechercher une création</label><input id="searchInput" type="search" placeholder="Rechercher une bougie, un bijou…" autocomplete="off"><button class="icon-btn" data-search-close aria-label="Fermer la recherche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="searchResults"></div>
+  </div></div>
+</div>
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Panier" aria-hidden="true">
+  <div class="cart-head"><h2>Votre panier</h2><button class="icon-btn" data-close-cart aria-label="Fermer le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div id="shipBar"></div><div id="cartBody"></div><div id="cartFoot"></div>
+</aside>
+<div class="sticky-buy" id="stickyBuy"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<nav class="mq-nav" aria-label="Changer de maquette"><a class="mq-home" href="index.html">← <span class="mq-long">Les 3 versions</span></a><a href="essentielle.html">1 · Essentielle</a><a href="signature.html" aria-current="page">2 · Signature</a><a href="lumiere.html">3 · Lumière</a><a class="mq-mob" href="mobile.html#signature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></nav>
+
+<script src="assets/data.js"></script>
+<script src="assets/shop.js"></script>
+<script>
+(function () {
+  Shop.init({ freeShip: 45, titleSuffix: 'Signature' });
+  // bandeau d'annonces
+  const ps = document.querySelectorAll('.announce p'); let i = 0;
+  setInterval(() => { ps[i].classList.remove('on'); i = (i + 1) % ps.length; ps[i].classList.add('on'); }, 3800);
+  // méga-menu au clavier / tactile
+  const mm = document.getElementById('mm'), mb = document.getElementById('mmBtn');
+  mb.addEventListener('click', () => { const o = mm.classList.toggle('open'); mb.setAttribute('aria-expanded', o); });
+  document.addEventListener('click', (e) => { if (!mm.contains(e.target)) { mm.classList.remove('open'); mb.setAttribute('aria-expanded', 'false'); } });
+  mm.querySelectorAll('.mm-panel a').forEach((a) => a.addEventListener('click', () => { mm.classList.remove('open'); a.blur(); }));
+  // menu mobile
+  const bg = document.getElementById('burger'), mn = document.getElementById('mnav');
+  bg.addEventListener('click', () => { const o = mn.classList.toggle('open'); bg.setAttribute('aria-expanded', o); });
+  mn.addEventListener('click', () => mn.classList.remove('open'));
+  // newsletter
+  document.getElementById('newsForm').addEventListener('submit', (e) => {
+    e.preventDefault(); const v = document.getElementById('newsEmail').value.trim();
+    if (!/^\S+@\S+\.\S+$/.test(v)) { Shop.toast('Saisissez une adresse e-mail valide, par exemple prenom@mail.fr'); return; }
+    e.currentTarget.innerHTML = '<p style="font-weight:600">Merci ! À très vite dans votre boîte mail.</p>';
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 380" font-family="Georgia, 'Times New Roman', serif">
+  <ellipse cx="200" cy="350" rx="132" ry="12" fill="#d9c7bb" opacity=".55"/>
+  <path d="M96 168 C86 250 92 312 122 336 C170 350 230 350 278 336 C308 312 314 250 304 168 Z" fill="#d8ba9c"/>
+  <path d="M104 172 C100 250 108 310 136 330" stroke="#c4a07c" stroke-width="10" fill="none" opacity=".6" stroke-linecap="round"/>
+  <path d="M296 172 C300 250 292 310 264 330" stroke="#c4a07c" stroke-width="8" fill="none" opacity=".45" stroke-linecap="round"/>
+  <path d="M96 168 C120 150 148 136 168 132 L232 132 C252 136 280 150 304 168 C268 182 132 182 96 168 Z" fill="#c4a07c"/>
+  <path d="M150 132 C160 104 168 84 160 64 M200 132 C200 100 202 80 200 56 M250 132 C240 104 232 84 240 64" stroke="#c4a07c" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <path d="M168 136 C150 124 116 120 112 140 C110 156 150 152 168 140 Z" fill="#c6856a"/>
+  <path d="M232 136 C250 124 284 120 288 140 C290 156 250 152 232 140 Z" fill="#c6856a"/>
+  <rect x="150" y="128" width="100" height="16" rx="8" fill="#c6856a"/>
+  <circle cx="200" cy="136" r="11" fill="#a2654a"/>
+  <path d="M212 146 L262 214" stroke="#8d6b55" stroke-width="2"/>
+  <g transform="rotate(-12 280 236)"><rect x="236" y="212" width="92" height="50" rx="8" fill="#faf9f5"/><circle cx="246" cy="237" r="5" fill="#c4a07c"/>
+  <text x="290" y="244" font-size="17" fill="#7b5a4c" text-anchor="middle" font-style="italic">Surprise</text></g>
+  <circle cx="150" cy="262" r="16" fill="#e9cdc8"/><circle cx="150" cy="262" r="6" fill="#d8ba9c"/><path d="M172 290 l8 -16 l8 16 l-8 6 z" fill="#c6856a"/>
+</svg>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr" data-version="v1">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Essentielle · La P’tite Fabrique d’Agachaé</title>
+<meta name="description" content="Bougies parfumées, créations en jesmonite et bijoux faits main dans le Pays de Caux, en Normandie. Petites séries et idées cadeaux par La P’tite Fabrique d’Agachaé.">
+<meta property="og:title" content="La P’tite Fabrique d’Agachaé · Créations faites main">
+<meta property="og:description" content="Bougies, jesmonite et bijoux faits main dans le Pays de Caux.">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Store","name":"La P’tite Fabrique d’Agachaé","description":"Bougies parfumées, jesmonite, bijoux et accessoires faits main","founder":{"@type":"Person","name":"Lucie"},"areaServed":"FR","address":{"@type":"PostalAddress","addressRegion":"Normandie","addressLocality":"Pays de Caux","addressCountry":"FR"},"email":"laptitefabriquedagachae@gmail.com","sameAs":["https://www.instagram.com/laptitefabriquedagachae"]}
+</script>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* Version 1 · Essentielle — mise en page boutique claire, une seule page, effets discrets */
+.announce { background: var(--rose); color: var(--ink); text-align: center; font: 500 13px/1.4 var(--f-label); letter-spacing: .04em; padding: 9px 16px; }
+header.site { position: sticky; top: 0; z-index: 40; background: rgba(250,249,245,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+header.site .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; min-height: 84px; }
+.brand img { width: 66px; height: 66px; }
+nav.main { display: flex; gap: 26px; justify-self: center; }
+nav.main a { text-decoration: none; font: 600 13px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); padding: 8px 0; border-bottom: 1px solid transparent; }
+nav.main a:hover { border-color: var(--terra); }
+.h-actions { justify-self: end; display: flex; gap: 6px; }
+.icon-btn { position: relative; display: inline-grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--ink); }
+.icon-btn:hover { background: var(--blush); }
+.icon-btn svg { width: 22px; height: 22px; }
+.badge-count { position: absolute; top: 4px; right: 2px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px; background: var(--terra-ink); color: #fff; font: 700 11px/18px var(--f-body); text-align: center; }
+.badge-count[data-n="0"] { display: none; }
+.burger { display: none; }
+
+.hero { position: relative; overflow: hidden; background: var(--blush); }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; align-items: center; gap: 40px; padding-block: 64px 72px; }
+.eyebrow { font: 600 12px/1 var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--terra-ink); }
+.hero h1 { font-size: clamp(2.1rem, 4.4vw, 3.4rem); margin: 18px 0 18px; }
+.hero h1 em { font-style: italic; font-weight: 500; color: var(--terra-ink); }
+.hero p.lead { font-size: 1.08rem; max-width: 46ch; color: var(--muted); }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 48px; padding: 0 24px; border-radius: 999px; border: 1px solid var(--terra-ink);
+  background: var(--terra-ink); color: #fff; font: 600 13px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; text-decoration: none; transition: background .2s, color .2s, transform .2s; }
+.btn:hover { background: #8d5540; border-color: #8d5540; }
+.btn.ghost { background: transparent; color: var(--terra-ink); }
+.btn.ghost:hover { background: var(--terra-ink); color: #fff; }
+.hero-visual { position: relative; aspect-ratio: 1 / 1; max-width: 500px; justify-self: center; width: 100%; }
+.hero-visual .disc { position: absolute; inset: 6% 6% 0; border-radius: 50% 50% 0 0 / 46% 46% 0 0; background: var(--rose); }
+.hero-visual img.prod { position: absolute; left: 50%; bottom: 8%; width: 76%; transform: translateX(-50%); filter: drop-shadow(0 22px 26px rgba(120,80,60,.22)); }
+.hero-visual .tag { position: absolute; right: 2%; top: 18%; background: var(--cream); border-radius: 14px; padding: 12px 16px; box-shadow: 0 10px 30px rgba(120,80,60,.12); font-size: 13px; }
+.hero-visual .tag strong { display: block; font-family: var(--f-display); font-size: 17px; color: var(--ink); }
+.hero .arche { position: absolute; left: -40px; bottom: -6px; width: 300px; opacity: .9; pointer-events: none; }
+
+section { padding-block: 72px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 30px; flex-wrap: wrap; }
+.sec-head h2 { font-size: clamp(1.7rem, 3vw, 2.3rem); }
+.sec-head p { color: var(--muted); max-width: 52ch; }
+
+.cats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.cat { text-decoration: none; background: var(--blush); border-radius: 18px; padding: 18px 18px 20px; display: grid; gap: 12px; border: 1px solid transparent; transition: border-color .2s, transform .2s; cursor: pointer; text-align: left; }
+.cat:hover { border-color: var(--rose-deep); transform: translateY(-3px); }
+.cat .ph { aspect-ratio: 4/3; display: grid; place-items: center; }
+.cat .ph img { max-height: 100%; max-width: 82%; object-fit: contain; }
+.cat h3 { font-size: 1.2rem; }
+.cat span { font-size: 13px; color: var(--muted); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 26px; }
+.pill { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 9px 16px; font: 600 13px/1 var(--f-label); color: var(--ink); }
+.pill[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+.pill .n { opacity: .6; margin-left: 4px; font-weight: 500; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px 20px; }
+.card { display: flex; flex-direction: column; gap: 10px; }
+.card .media { position: relative; aspect-ratio: 1 / 1; border-radius: 16px; background: var(--blush); display: grid; place-items: center; overflow: hidden; border: 0; padding: 0; cursor: pointer; }
+.card .media img { width: 78%; height: 78%; object-fit: contain; transition: transform .35s ease; }
+.card .media img.flip { transform: scaleX(-1); }
+.card:hover .media img { transform: scale(1.04); }
+.card:hover .media img.flip { transform: scaleX(-1) scale(1.04); }
+.chip { position: absolute; top: 12px; left: 12px; background: var(--cream); color: var(--terra-ink); border-radius: 999px; padding: 5px 10px; font: 600 11px/1 var(--f-label); letter-spacing: .04em; }
+.chip.ill { left: auto; right: 12px; background: rgba(255,255,255,.7); color: var(--muted); font-weight: 500; }
+.card h3 { font-size: 1.1rem; }
+.card h3 button { all: unset; cursor: pointer; }
+.card h3 button:focus-visible { outline: 2px solid var(--terra-ink); outline-offset: 2px; }
+.card .meta { display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.card .short { font-size: 13.5px; color: var(--muted); line-height: 1.45; min-height: 2.9em; }
+.card .price { color: var(--terra-ink); font-weight: 700; white-space: nowrap; }
+.card .add { margin-top: auto; min-height: 42px; border-radius: 999px; border: 1px solid var(--ink); background: transparent; font: 600 12px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); transition: background .2s, color .2s; }
+.card .add:hover { background: var(--ink); color: #fff; }
+
+.reassure { background: var(--blush); padding-block: 40px; }
+.reassure ul { list-style: none; margin: 0 auto; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.reassure li { display: flex; gap: 14px; align-items: center; }
+.reassure svg { flex: none; width: 40px; height: 40px; color: var(--terra-ink); }
+.reassure strong { display: block; font-family: var(--f-display); color: var(--ink); font-size: 1.05rem; }
+.reassure span { font-size: 13.5px; color: var(--muted); }
+
+.about .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 56px; align-items: center; }
+.about .logo-big { width: min(360px, 100%); justify-self: center; }
+.about h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 18px; }
+.about p + p { margin-top: 14px; }
+.about p { max-width: 62ch; }
+.about .sign { font-family: var(--f-display); font-style: italic; color: var(--terra-ink); font-size: 1.3rem; margin-top: 18px; }
+
+.news { background: var(--terra); color: #fff; border-radius: 24px; padding: 42px; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+.news h2 { color: #fff; font-size: clamp(1.5rem, 2.6vw, 2rem); }
+.news p { opacity: .92; margin-top: 8px; }
+.news form { display: flex; gap: 10px; flex-wrap: wrap; }
+.news input { flex: 1 1 220px; min-height: 50px; border-radius: 999px; border: 1px solid rgba(255,255,255,.25); padding: 0 20px; background: #3d3434; color: #fff; caret-color: #fff; }
+.news input::placeholder { color: rgba(255,255,255,.88); opacity: 1; }
+.news input:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.news .btn { background: var(--text); border-color: var(--text); }
+.news .ok { font-weight: 600; }
+
+footer.site { margin-top: 72px; background: var(--ink); color: rgba(255,255,255,.82); padding-block: 48px 90px; font-size: 14px; }
+footer.site .cols { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 30px; }
+footer.site h4 { color: #fff; font-size: 1.05rem; margin-bottom: 12px; }
+footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+footer.site a { text-decoration: none; }
+footer.site a:hover { text-decoration: underline; }
+footer.site .legal { border-top: 1px solid rgba(255,255,255,.15); margin-top: 34px; padding-top: 18px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: 13px; opacity: .8; }
+.pay { display: flex; gap: 6px; flex-wrap: wrap; }
+.pay span { border: 1px solid rgba(255,255,255,.3); border-radius: 6px; padding: 3px 7px; font: 600 11px/1.3 var(--f-label); }
+
+/* Fenêtre produit */
+.overlay { position: fixed; inset: 0; background: rgba(40,30,28,.45); z-index: 60; opacity: 0; pointer-events: none; transition: opacity .25s; }
+.overlay.on { opacity: 1; pointer-events: auto; }
+dialog.qv { border: 0; padding: 0; border-radius: 22px; width: min(860px, calc(100% - 28px)); max-height: calc(100% - 28px); background: var(--cream); color: var(--text); box-shadow: 0 30px 80px rgba(0,0,0,.25); }
+dialog.qv::backdrop { background: rgba(40,30,28,.45); }
+.qv .in { display: grid; grid-template-columns: 1fr 1fr; }
+.qv .pic { background: var(--blush); display: grid; place-items: center; padding: 30px; min-height: 360px; }
+.qv .pic img { max-height: 380px; object-fit: contain; }
+.qv .pic img.flip { transform: scaleX(-1); }
+.qv .info { padding: 34px 32px 30px; display: flex; flex-direction: column; gap: 14px; }
+.qv h2 { font-size: 1.9rem; }
+.qv .price { font-size: 1.25rem; color: var(--terra-ink); font-weight: 700; }
+.qv .facts { display: flex; gap: 8px; flex-wrap: wrap; }
+.qv .facts span { background: var(--blush); border-radius: 999px; padding: 6px 12px; font-size: 13px; }
+.qv label { font: 600 12px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; color: var(--ink); display: block; margin-bottom: 8px; }
+.qv select { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid var(--line); background: #fff; padding: 0 12px; }
+.qv .row { display: flex; gap: 10px; align-items: center; }
+.qty { display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 999px; background: #fff; }
+.qty button { width: 40px; height: 44px; border: 0; background: none; font-size: 18px; }
+.qty output { min-width: 26px; text-align: center; font-weight: 600; }
+.qv .row .btn { flex: 1; }
+.qv .close { position: absolute; top: 12px; right: 12px; }
+
+/* Panier latéral */
+aside.cart { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100%); z-index: 70; background: var(--cream); box-shadow: -20px 0 50px rgba(0,0,0,.15);
+  transform: translateX(105%); transition: transform .35s cubic-bezier(.2,.8,.2,1); display: flex; flex-direction: column; }
+aside.cart.on { transform: none; }
+.cart-head { display: flex; justify-content: space-between; align-items: center; padding: 20px 22px; border-bottom: 1px solid var(--line); }
+.cart-head h2 { font-size: 1.4rem; }
+.cart-body { flex: 1; overflow: auto; padding: 8px 22px; }
+.line { display: grid; grid-template-columns: 72px 1fr auto; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); align-items: center; }
+.line .th { width: 72px; height: 72px; border-radius: 12px; background: var(--blush); display: grid; place-items: center; }
+.line .th img { max-width: 80%; max-height: 80%; object-fit: contain; }
+.line h3 { font-size: 1rem; }
+.line small { color: var(--muted); display: block; }
+.line .qty button { width: 32px; height: 34px; font-size: 16px; }
+.line .rm { border: 0; background: none; font-size: 12px; color: var(--muted); text-decoration: underline; padding: 4px 0; }
+.line .lp { text-align: right; font-weight: 700; color: var(--terra-ink); display: grid; gap: 6px; justify-items: end; }
+.empty { text-align: center; padding: 50px 10px; color: var(--muted); display: grid; gap: 14px; justify-items: center; }
+.cart-foot { padding: 18px 22px 22px; border-top: 1px solid var(--line); display: grid; gap: 12px; background: #fff; }
+.cart-foot .tot { display: flex; justify-content: space-between; font-size: 1.1rem; }
+.cart-foot .tot strong { font-family: var(--f-display); font-size: 1.4rem; color: var(--ink); }
+.cart-foot small { color: var(--muted); }
+
+@media (max-width: 980px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+  .cats { grid-template-columns: repeat(2, 1fr); }
+  .reassure ul { grid-template-columns: repeat(2, 1fr); }
+  footer.site .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  nav.main { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--cream); flex-direction: column; gap: 0; padding: 8px 20px 16px; border-bottom: 1px solid var(--line); }
+  nav.main.open { display: flex; }
+  nav.main a { padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .burger { display: inline-grid; }
+  header.site .wrap { grid-template-columns: auto 1fr auto; }
+  .brand { justify-self: center; grid-column: 2; }
+  .burger { grid-column: 1; grid-row: 1; }
+  .h-actions { grid-column: 3; }
+  .hero .wrap { grid-template-columns: 1fr; padding-block: 40px 56px; }
+  .hero-visual { max-width: 380px; }
+  .about .wrap, .news { grid-template-columns: 1fr; }
+  .qv .in { grid-template-columns: 1fr; }
+  .qv .pic { min-height: 240px; }
+  .qv .pic img { max-height: 240px; }
+}
+@media (max-width: 560px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 22px 12px; }
+  .cats { gap: 10px; }
+  .card .short { display: none; }
+  .card .add { font-size: 11px; letter-spacing: .04em; }
+  .reassure ul { grid-template-columns: 1fr; }
+  .news { padding: 28px 22px; }
+  footer.site .cols { grid-template-columns: 1fr; }
+  section { padding-block: 52px; }
+}
+</style>
+</head>
+<body>
+<div class="announce">Créations faites main dans le Pays de Caux · Petites séries · Collection Automne/Hiver 2026</div>
+<header class="site">
+  <div class="wrap">
+    <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="#top" aria-label="La P’tite Fabrique d’Agachaé, accueil"><img src="img/logo.webp" alt="La P’tite Fabrique d’Agachaé"></a>
+    <nav class="main" id="nav" aria-label="Menu principal">
+      <a href="#boutique" data-filter="bougies">Bougies</a>
+      <a href="#boutique" data-filter="jesmonite">Jesmonite</a>
+      <a href="#boutique" data-filter="bijoux">Bijoux</a>
+      <a href="#boutique" data-filter="pochettes">Coffrets</a>
+      <a href="#atelier">L’atelier</a>
+    </nav>
+    <div class="h-actions">
+      <button class="icon-btn" id="openCart" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 8h14l-1.2 11.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8L5 8Z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span class="badge-count" id="count" data-n="0">0</span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-labelledby="h-hero">
+    <img class="arche" src="img/arche.webp" alt="">
+    <div class="wrap">
+      <div>
+        <p class="eyebrow">Collection Automne / Hiver 2026</p>
+        <h1 id="h-hero">Des créations douces, <em>faites main</em> dans le Pays de Caux</h1>
+        <p class="lead">Bougies parfumées aux fragrances de Grasse, objets en jesmonite et bijoux colorés, imaginés et fabriqués de A à Z dans mon atelier.</p>
+        <div class="btns">
+          <a class="btn" href="#boutique" data-filter="bougies">Découvrir les bougies</a>
+          <a class="btn ghost" href="#boutique" data-filter="all">Toute la boutique</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="disc"></div>
+        <img class="prod" src="img/bougie-camelia.webp" alt="Bougie Douceur Camélia dans son contenant en jesmonite">
+        <div class="tag"><strong>Douceur Camélia</strong>La bougie signature · 22 €</div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-cats">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-cats">Les collections</h2><p>Chaque pièce est coulée, poncée et finie à la main. Les petites variations font partie du charme du fait main.</p></div>
+      <div class="cats" id="cats"></div>
+    </div>
+  </section>
+
+  <section id="boutique" aria-labelledby="h-shop" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head"><h2 id="h-shop">La boutique</h2><p id="shopNote">Toutes les créations disponibles cette saison.</p></div>
+      <div class="filters" id="filters" role="group" aria-label="Filtrer par collection"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+  <div class="reassure">
+    <ul class="wrap">
+      <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6c4 5 5 8 0 11-5-3-4-6 0-11Z"/><path d="M20 17v4"/><rect x="11" y="21" width="18" height="14" rx="3"/></svg><div><strong>Petites séries</strong><span>Des créations qui évoluent au fil des saisons</span></div></li>
+      <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22c0-6 3-10 8-10s8 4 8 10-4 11-8 11-8-5-8-11Z"/><path d="M16 21h8M17 26h6"/></svg><div><strong>Fait main</strong><span>De la conception aux finitions</span></div></li>
+      <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 33s-11-6.5-11-14a6 6 0 0 1 11-3.3A6 6 0 0 1 31 19c0 7.5-11 14-11 14Z"/></svg><div><strong>Réalisé avec soin</strong><span>Dans mon atelier normand</span></div></li>
+      <li><svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="8" y="16" width="24" height="17" rx="2"/><path d="M6 12h28v4H6zM20 12v21M20 12c-3-5-9-5-8-1s8 1 8 1Zm0 0c3-5 9-5 8-1s-8 1-8 1Z"/></svg><div><strong>Idées cadeaux</strong><span>Pour toutes les occasions</span></div></li>
+    </ul>
+  </div>
+
+  <section class="about" id="atelier" aria-labelledby="h-about">
+    <div class="wrap">
+      <img class="logo-big" src="img/logo.webp" alt="Logo La P’tite Fabrique d’Agachaé">
+      <div>
+        <p class="eyebrow">L’atelier</p>
+        <h2 id="h-about" style="margin-top:12px">Bienvenue dans mon univers</h2>
+        <p>Je m’appelle Lucie, créatrice de La P’tite Fabrique d’Agachaé et maman de deux enfants, Agathe et Sacha. C’est de leurs prénoms qu’est né « Agachaé ».</p>
+        <p>Je réalise chaque pièce à la main, de la conception aux finitions, avec l’envie de créer des objets doux, poétiques et uniques : bougies parfumées, créations en jesmonite, bijoux et petits accessoires.</p>
+        <p>Et parce que j’aime donner une seconde vie à mes créations, une fois la bougie terminée, son contenant devient une jolie boîte, un vide-poche ou un objet déco.</p>
+        <p class="sign">Lucie</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="news">
+      <div><h2>Les nouveautés en avant-première</h2><p>Nouvelles collections, coulisses de l’atelier et dates des marchés.</p></div>
+      <form id="newsForm" novalidate>
+        <label class="sr-only" for="newsEmail">Votre adresse e-mail</label>
+        <input id="newsEmail" type="email" placeholder="Votre adresse e-mail" autocomplete="email">
+        <button class="btn" type="submit">Je m’inscris</button>
+      </form>
+    </div>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div><h4>La P’tite Fabrique d’Agachaé</h4><p>Créations artisanales<br>Pays de Caux · Normandie</p><p style="margin-top:10px">laptitefabriquedagachae@gmail.com</p></div>
+      <div><h4>Boutique</h4><ul><li><a href="#boutique" data-filter="bougies">Bougies</a></li><li><a href="#boutique" data-filter="jesmonite">Jesmonite</a></li><li><a href="#boutique" data-filter="bijoux">Bijoux</a></li><li><a href="#boutique" data-filter="pochettes">Coffrets</a></li></ul></div>
+      <div><h4>Infos</h4><ul><li><a href="#atelier">L’atelier</a></li><li><a href="#top">Livraison & retours</a></li><li><a href="#top">Conditions générales</a></li><li><a href="#top">Mentions légales</a></li></ul></div>
+      <div><h4>Suivez l’atelier</h4><ul><li><a href="https://www.instagram.com/laptitefabriquedagachae">Instagram</a></li><li><a href="https://www.instagram.com/laptitefabriquedagachae">Facebook</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 La P’tite Fabrique d’Agachaé</span><div class="pay" aria-label="Moyens de paiement"><span>CB</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>PayPal</span></div></div>
+  </div>
+</footer>
+
+<dialog class="qv" id="qv" aria-labelledby="qvTitle"></dialog>
+<div class="overlay" id="overlay"></div>
+<aside class="cart" id="cart" aria-label="Panier" aria-hidden="true">
+  <div class="cart-head"><h2>Votre panier</h2><button class="icon-btn" id="closeCart" aria-label="Fermer le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div class="cart-body" id="cartBody"></div>
+  <div class="cart-foot" id="cartFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<nav class="mq-nav" aria-label="Changer de maquette"><a class="mq-home" href="index.html">← <span class="mq-long">Les 3 versions</span></a><a href="essentielle.html" aria-current="page">1 · Essentielle</a><a href="signature.html">2 · Signature</a><a href="lumiere.html">3 · Lumière</a><a class="mq-mob" href="mobile.html#essentielle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></nav>
+
+<script src="assets/data.js"></script>
+<script>
+(function () {
+  const { products, byId, variants, scents, cats, src, eur, Cart } = AGA;
+  const $ = (s, r = document) => r.querySelector(s);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let filter = 'all';
+
+  // Collections
+  $('#cats').innerHTML = cats.map((c) => `
+    <button class="cat" data-filter="${c.id}"><div class="ph"><img src="${src(c.img)}" alt="" loading="lazy"></div><h3>${c.name}</h3><span>${c.line}</span></button>`).join('');
+
+  // Filtres
+  const labels = { all: 'Tout', bougies: 'Bougies', jesmonite: 'Jesmonite', bijoux: 'Bijoux', pochettes: 'Coffrets' };
+  function renderFilters() {
+    $('#filters').innerHTML = Object.entries(labels).map(([k, v]) => {
+      const n = k === 'all' ? products.length : products.filter((p) => p.cat === k).length;
+      return `<button class="pill" data-filter="${k}" aria-pressed="${filter === k}">${v}<span class="n">${n}</span></button>`;
+    }).join('');
+  }
+  function card(p) {
+    const ill = p.ill ? '<span class="chip ill">Visuel provisoire</span>' : '';
+    const chip = p.badges[0] ? `<span class="chip">${p.badges[0]}</span>` : '';
+    return `<article class="card">
+      <button class="media" data-qv="${p.id}" aria-label="Voir ${esc(p.name)}">${chip}${ill}<img src="${src(p.img)}" alt="${esc(p.name)}" loading="lazy" class="${p.flip ? 'flip' : ''}"></button>
+      <div class="meta"><h3><button data-qv="${p.id}">${p.name}</button></h3><span class="price">${p.variants ? 'dès ' : ''}${eur(p.price)}</span></div>
+      <p class="short">${p.short}</p>
+      <button class="add" data-add="${p.id}">${p.variants ? 'Choisir' : 'Ajouter au panier'}</button>
+    </article>`;
+  }
+  function renderGrid() {
+    const list = filter === 'all' ? products : products.filter((p) => p.cat === filter);
+    $('#grid').innerHTML = list.map(card).join('');
+    $('#shopNote').textContent = filter === 'all' ? 'Toutes les créations disponibles cette saison.' : cats.find((c) => c.id === filter).line + '.';
+  }
+  function setFilter(f) { filter = f || 'all'; renderFilters(); renderGrid(); }
+  setFilter('all');
+
+  document.addEventListener('click', (e) => {
+    const f = e.target.closest('[data-filter]');
+    if (f) { if (f.tagName !== 'A') { e.preventDefault(); } setFilter(f.dataset.filter); if (!f.classList.contains('pill') && (f.tagName !== 'A' || f.getAttribute('href') !== '#boutique')) document.getElementById('boutique').scrollIntoView({ behavior: 'smooth' }); $('#nav').classList.remove('open'); }
+    const q = e.target.closest('[data-qv]'); if (q) openQV(q.dataset.qv);
+    const a = e.target.closest('[data-add]');
+    if (a) { const p = byId[a.dataset.add]; if (p.variants) openQV(p.id); else { Cart.add(p.id); toast(`${p.name} ajouté au panier`); openCart(); } }
+  });
+  $('#burger').addEventListener('click', (e) => { const n = $('#nav'); n.classList.toggle('open'); e.currentTarget.setAttribute('aria-expanded', n.classList.contains('open')); });
+
+  // Fenêtre produit
+  const qv = $('#qv');
+  function openQV(id) {
+    const p = byId[id]; let qty = 1;
+    const vlist = p.variants ? variants[p.variants] : null;
+    const opt = p.cat === 'bougies'
+      ? `<div><label for="qvOpt">Parfum</label><select id="qvOpt">${scents.map((s) => `<option ${s.name === p.scentDefault ? 'selected' : ''}>${s.name}</option>`).join('')}</select></div>`
+      : vlist ? `<div><label for="qvOpt">${p.variants === 'creoles' ? 'Finition' : 'Modèle'}</label><select id="qvOpt">${vlist.map((v) => `<option>${v.name}</option>`).join('')}</select></div>` : '';
+    qv.innerHTML = `<div class="in">
+      <div class="pic"><img id="qvImg" src="${src(p.img)}" alt="${esc(p.name)}" class="${p.flip ? 'flip' : ''}"></div>
+      <div class="info">
+        <p class="eyebrow">${cats.find((c) => c.id === p.cat).name}</p>
+        <h2 id="qvTitle">${p.name}</h2>
+        <p class="price">${eur(p.price)}</p>
+        <p>${p.desc}</p>
+        <div class="facts">${p.burn ? `<span>Environ ${p.burn} de combustion</span>` : ''}<span>Fait main</span>${p.cat === 'bougies' ? '<span>Parfum de Grasse</span>' : ''}${p.cat === 'pochettes' ? '<span>Quantité limitée</span>' : ''}</div>
+        ${opt}
+        <div class="row"><div class="qty"><button type="button" data-q="-1" aria-label="Diminuer">−</button><output id="qvQty">1</output><button type="button" data-q="1" aria-label="Augmenter">+</button></div>
+        <button class="btn" id="qvAdd">Ajouter · <span id="qvTot">${eur(p.price)}</span></button></div>
+      </div></div>
+      <button class="icon-btn close" id="qvClose" aria-label="Fermer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button>`;
+    qv.showModal();
+    const sel = $('#qvOpt', qv);
+    if (sel && vlist && vlist[0].img) sel.addEventListener('change', () => { const v = vlist[sel.selectedIndex]; $('#qvImg', qv).src = src(v.img); });
+    qv.querySelectorAll('[data-q]').forEach((b) => b.addEventListener('click', () => { qty = Math.max(1, qty + +b.dataset.q); $('#qvQty', qv).textContent = qty; $('#qvTot', qv).textContent = eur(qty * p.price); }));
+    $('#qvClose', qv).addEventListener('click', () => qv.close());
+    $('#qvAdd', qv).addEventListener('click', () => {
+      const o = sel ? sel.value : '';
+      const v = vlist ? vlist.find((x) => x.name === o) : null;
+      Cart.add(p.id, { qty, variant: p.cat === 'bougies' ? '' : o, scent: p.cat === 'bougies' ? o : '', img: v && v.img ? v.img : p.img });
+      qv.close(); toast(`${p.name} ajouté au panier`); openCart();
+    });
+  }
+  qv.addEventListener('click', (e) => { if (e.target === qv) qv.close(); });
+
+  // Panier
+  const cartEl = $('#cart'), overlay = $('#overlay');
+  function openCart() { cartEl.classList.add('on'); overlay.classList.add('on'); cartEl.setAttribute('aria-hidden', 'false'); }
+  function closeCart() { cartEl.classList.remove('on'); overlay.classList.remove('on'); cartEl.setAttribute('aria-hidden', 'true'); }
+  $('#openCart').addEventListener('click', openCart); $('#closeCart').addEventListener('click', closeCart); overlay.addEventListener('click', closeCart);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeCart(); });
+  function renderCart() {
+    const items = Cart.items();
+    $('#count').textContent = Cart.count(); $('#count').dataset.n = Cart.count();
+    $('#cartBody').innerHTML = items.length ? items.map((l) => `
+      <div class="line"><div class="th"><img src="${src(l.img)}" alt=""></div>
+        <div><h3>${l.name}</h3><small>${[l.scent, l.variant].filter(Boolean).join(' · ') || '&nbsp;'}</small>
+          <div class="qty" style="margin-top:6px"><button data-lq="${l.key}" data-d="-1" aria-label="Retirer un">−</button><output>${l.qty}</output><button data-lq="${l.key}" data-d="1" aria-label="Ajouter un">+</button></div></div>
+        <div class="lp"><span class="price">${eur(l.qty * l.price)}</span><button class="rm" data-rm="${l.key}">Retirer</button></div></div>`).join('')
+      : `<div class="empty"><p>Votre panier est vide pour le moment.</p><button class="btn ghost" data-filter="all" id="emptyGo">Voir la boutique</button></div>`;
+    $('#cartFoot').innerHTML = items.length ? `<div class="tot"><span>Sous-total</span><strong class="price">${eur(Cart.total())}</strong></div>
+      <small>Frais de livraison calculés à l’étape suivante.</small><button class="btn" id="checkout">Commander</button>` : '';
+    const co = $('#checkout'); if (co) co.addEventListener('click', () => toast('Maquette : ici s’ouvre le paiement sécurisé Shopify (CB, Apple Pay, PayPal…)'));
+    const eg = $('#emptyGo'); if (eg) eg.addEventListener('click', closeCart);
+  }
+  $('#cartBody').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-lq]'); if (b) { const l = Cart.items().find((x) => x.key === b.dataset.lq); Cart.setQty(l.key, l.qty + +b.dataset.d); }
+    const r = e.target.closest('[data-rm]'); if (r) Cart.remove(r.dataset.rm);
+  });
+  Cart.on(renderCart); renderCart();
+
+  // Newsletter
+  $('#newsForm').addEventListener('submit', (e) => {
+    e.preventDefault(); const v = $('#newsEmail').value.trim();
+    if (!/^\S+@\S+\.\S+$/.test(v)) { toast('Saisissez une adresse e-mail valide, par exemple prenom@mail.fr'); return; }
+    e.currentTarget.innerHTML = '<p class="ok">Merci ! Vous recevrez les prochaines nouveautés en avant-première.</p>';
+  });
+
+  let tt; function toast(m) { const t = $('#toast'); t.textContent = m; t.classList.add('show'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('show'), 2800); }
+})();
+</script>
+</body>
+</html>

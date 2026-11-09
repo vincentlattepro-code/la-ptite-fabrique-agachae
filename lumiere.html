@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="fr" data-version="v3">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lumière · La P’tite Fabrique d’Agachaé</title>
+<meta name="description" content="Bougies parfumées coulées à la main dans des contenants en jesmonite, bijoux et accessoires faits main dans le Pays de Caux. Trouvez votre parfum, composez vos boucles, découvrez le calendrier de l’Avent.">
+<meta property="og:title" content="La P’tite Fabrique d’Agachaé · Allumez la douceur">
+<meta property="og:type" content="website">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"Store","name":"La P’tite Fabrique d’Agachaé","founder":{"@type":"Person","name":"Lucie"},"address":{"@type":"PostalAddress","addressLocality":"Pays de Caux","addressRegion":"Normandie","addressCountry":"FR"},"email":"laptitefabriquedagachae@gmail.com","sameAs":["https://www.instagram.com/laptitefabriquedagachae"]},
+{"@type":"Product","name":"Rose Illuminée","description":"Bougie parfumée coulée à la main dans un pot en jesmonite, couvercle rose sculpté. Environ 30 h de combustion.","brand":{"@type":"Brand","name":"La P’tite Fabrique d’Agachaé"},"offers":{"@type":"Offer","price":"29.00","priceCurrency":"EUR","availability":"https://schema.org/InStock"}}]}
+</script>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<link rel="stylesheet" href="assets/shop.css">
+<style>
+/* Version 3 · Lumière — la marque racontée par la flamme : héros nocturne animé, bougies qui s'allument à l'ajout, mode soirée */
+:root { --amber: #ffb867; --night: #1c1411; --night-2: #2a1f1b; }
+html.soir, .night {
+  --cream: #1c1411; --blush: #2a1f1b; --rose: #3a2a24; --rose-deep: #c99482; --terra: #d0896b; --terra-ink: #e7a682; --sand: #4f3e33;
+  --ink: #f6ebe1; --text: #e9dbd0; --muted: #b8a497; --line: rgba(255,236,220,.13); --panel: #251b17; --card: #2a1f1b; color-scheme: dark;
+}
+.night { background: var(--cream); color: var(--text); }
+html.soir .btn, .night .btn { color: #1c1411; }
+html.soir .btn:hover, .night .btn:hover { background: #f3bd9c; border-color: #f3bd9c; }
+html.soir .btn.ghost, .night .btn.ghost { color: var(--terra-ink); }
+html.soir .btn.ghost:hover, .night .btn.ghost:hover { color: #1c1411; background: var(--terra-ink); }
+html.soir .count, .night .count { color: #1c1411; }
+html.soir .padd:hover, .night .padd:hover { color: #1c1411; }
+html.soir .fbtn[aria-pressed="true"], html.soir .tab[aria-selected="true"] { color: var(--ink); }
+html.soir .tab[aria-selected="true"] { background: var(--terra-ink); color: #1c1411; border-color: var(--terra-ink); }
+html.soir .brand img, html.soir .flogo { background: #faf9f5; border-radius: 50%; }
+body { transition: background .6s ease, color .6s ease; }
+
+/* ——— Flamme ——— */
+.flm { position: absolute; left: 0; top: 0; width: var(--fw, 20px); height: calc(var(--fw, 20px) * 2.5); transform: translate(-50%, -94%); pointer-events: none; z-index: 4; }
+.flm-lean { position: absolute; inset: 0; transform-origin: 50% 94%; transform: rotate(var(--lean, 0deg)); }
+.flm-grow { position: absolute; inset: 0; transform-origin: 50% 94%; transform: scale(0, 0); opacity: 0; transition: transform .9s cubic-bezier(.3, 1.6, .5, 1), opacity .3s; }
+.flm.on .flm-grow { transform: scale(1, 1); opacity: 1; }
+.flm-flick { position: absolute; inset: 0; transform-origin: 50% 94%; animation: flick 2.4s ease-in-out infinite; }
+.flm-svg { width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 0 calc(var(--fw, 20px) * .3) rgba(255, 168, 80, .95)); }
+.flm-halo { position: absolute; left: 50%; top: 62%; width: calc(var(--fw, 20px) * 10); height: calc(var(--fw, 20px) * 10); border-radius: 50%; transform: translate(-50%, -50%) scale(.2); opacity: 0;
+  background: radial-gradient(circle, rgba(255, 196, 120, .5) 0%, rgba(255, 160, 80, .2) 32%, rgba(255, 140, 60, 0) 68%); transition: transform 1.4s ease, opacity 1.2s ease; pointer-events: none; }
+.flm.on .flm-halo { transform: translate(-50%, -50%) scale(1); opacity: 1; animation: halo 3.2s ease-in-out infinite; }
+@keyframes flick { 0%, 100% { transform: scale(1, 1) skewX(0); } 18% { transform: scale(.95, 1.05) skewX(1.6deg); } 36% { transform: scale(1.03, .96) skewX(-1.2deg); } 52% { transform: scale(.97, 1.07) skewX(.6deg); } 70% { transform: scale(1.02, .97) skewX(-1.8deg); } 86% { transform: scale(.98, 1.03) skewX(1deg); } }
+@keyframes halo { 0%, 100% { filter: brightness(1); } 30% { filter: brightness(1.15); } 55% { filter: brightness(.9); } 80% { filter: brightness(1.08); } }
+
+/* ——— En-tête ——— */
+header.site { position: fixed; top: 0; left: 0; right: 0; z-index: 60; color: #f6ebe1; transition: background .4s, color .4s, box-shadow .4s; }
+header.site.solid { background: rgba(250, 249, 245, .94); color: var(--ink); box-shadow: 0 1px 0 var(--line); backdrop-filter: blur(10px); }
+html.soir header.site.solid { background: rgba(28, 20, 17, .92); }
+header.site .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 86px; gap: 16px; }
+.nav-l { display: flex; gap: 4px; }
+.nav-l a { text-decoration: none; font: 600 12.5px/1 var(--f-label); letter-spacing: .1em; text-transform: uppercase; padding: 12px; border-radius: 999px; }
+.nav-l a:hover, .nav-l a.active { background: rgba(255, 190, 140, .14); }
+.brand img { width: 68px; height: 68px; background: #faf9f5; border-radius: 50%; padding: 2px; box-shadow: 0 4px 18px rgba(0, 0, 0, .18); }
+.nav-r { justify-self: end; display: flex; gap: 2px; align-items: center; }
+.soir-btn { display: inline-flex; align-items: center; gap: 8px; border: 1px solid currentColor; border-radius: 999px; padding: 8px 14px 8px 10px; background: transparent; font: 600 11.5px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; opacity: .9; margin-right: 6px; }
+.soir-btn svg { width: 18px; height: 18px; }
+.soir-btn[aria-pressed="true"] { background: var(--amber); border-color: var(--amber); color: #1c1411; }
+.cartc .cc { position: relative; width: 26px; height: 32px; display: block; }
+.cartc svg.pot { width: 26px; height: 32px; }
+.cartc .flm { left: 50%; top: 30%; --fw: 9px; }
+.cartc.bump { animation: bump .5s cubic-bezier(.3, 1.6, .5, 1); }
+@keyframes bump { 40% { transform: scale(1.22); } }
+.burger { display: none; }
+.mnav { display: none; }
+
+/* ——— Héros : l'allumage ——— */
+.hero { position: relative; height: 150vh; background: #160f0d; color: #f3e6da; }
+.hero-pin { position: sticky; top: 0; height: 100vh; min-height: 640px; overflow: hidden; display: grid; align-items: center;
+  background: radial-gradient(110% 90% at 68% 50%, #3b2822 0%, #211714 50%, #140e0c 100%); }
+.room { position: absolute; left: 66%; top: 46%; width: 140vmax; height: 140vmax; border-radius: 50%; transform: translate(-50%, -50%) scale(calc(.35 + var(--p, 0) * 1.4)); opacity: 0;
+  background: radial-gradient(circle, rgba(255, 178, 96, .34) 0%, rgba(255, 150, 80, .12) 22%, rgba(255, 140, 60, 0) 46%); transition: opacity 1.6s ease; pointer-events: none; }
+.hero.lit .room { opacity: 1; }
+#embers { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.hero-grid { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: center; padding-top: 70px; transform: translateY(calc(var(--p, 0) * -70px)); }
+.hero-text { opacity: calc(1 - var(--p, 0) * 1.4); }
+.hero .eyebrow { color: #e9b99c; }
+.hero h1 { color: #f6ebe1; font-size: clamp(2.8rem, 6.4vw, 5.6rem); font-weight: 500; line-height: 1.02; margin: 18px 0 22px; letter-spacing: -.015em; }
+.hero h1 em { display: inline-block; color: #8d7a70; transition: color 1.4s ease, text-shadow 1.4s ease; }
+.hero.lit h1 em { color: #ffcf8f; text-shadow: 0 0 24px rgba(255, 170, 90, .55), 0 0 60px rgba(255, 140, 60, .3); }
+.hero .lead { color: #d8c6b9; max-width: 44ch; font-size: 1.08rem; }
+.hero .btns { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.hero .btn { color: #1c1411; background: #f0b48f; border-color: #f0b48f; }
+.hero .btn:hover { background: #ffd2b0; border-color: #ffd2b0; }
+.hero .btn.ghost { background: transparent; color: #f3e6da; border-color: rgba(243, 230, 218, .5); }
+.hero .btn.ghost:hover { background: rgba(243, 230, 218, .1); }
+.hint { margin-top: 26px; font-size: 13px; color: #b39f93; }
+.hint b { color: #f3e6da; font-weight: 600; }
+.stage { position: relative; width: min(100%, 720px); aspect-ratio: 774 / 504; justify-self: center; transform: scale(calc(1 - var(--p, 0) * .1)); }
+.stage::after { content: ""; position: absolute; left: 6%; right: 12%; bottom: -3%; height: 12%; border-radius: 50%; background: radial-gradient(ellipse, rgba(0, 0, 0, .55), transparent 70%); z-index: -1; }
+.stage-img { width: 100%; height: 100%; filter: brightness(.32) saturate(.6) contrast(1.05); transition: filter 1.8s ease; }
+.stage.lit .stage-img { filter: brightness(1) saturate(1.06) contrast(1.02); }
+.stage .warm { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 1.8s ease;
+  filter: sepia(.55) saturate(1.7) hue-rotate(-10deg) brightness(1.12);
+  -webkit-mask-image: radial-gradient(55% 75% at 39% 30%, #000 0%, rgba(0,0,0,.5) 45%, transparent 75%); mask-image: radial-gradient(55% 75% at 39% 30%, #000 0%, rgba(0,0,0,.5) 45%, transparent 75%); }
+.stage.lit .warm { opacity: .6; animation: halo 3.2s ease-in-out infinite; }
+.stage .waxlight { position: absolute; left: 39.3%; top: 33%; width: 30%; height: 13%; transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; opacity: 0;
+  background: radial-gradient(ellipse, rgba(255, 214, 140, .75), rgba(255, 190, 110, .2) 50%, transparent 72%); transition: opacity 1.4s ease; mix-blend-mode: screen; }
+.stage.lit .waxlight { opacity: 1; animation: halo 2.6s ease-in-out infinite; }
+.stage > .flm { left: 39.3%; top: 32.6%; }
+.match { position: absolute; left: 39.3%; top: 31%; width: 30%; transform-origin: 0 50%; transform: translate(calc(var(--mx, 400) * 1px), calc(var(--my, 160) * 1px)) rotate(-26deg); opacity: 0;
+  transition: transform .95s cubic-bezier(.55, 0, .2, 1), opacity .45s ease; z-index: 5; pointer-events: none; }
+.match.show { opacity: 1; }
+.match svg { width: 100%; display: block; }
+.match .mfl { position: absolute; left: 6%; top: 34%; transform: rotate(26deg); }
+.match .mfl .flm { --fw: 12px; }
+.spark { position: absolute; width: 4px; height: 4px; border-radius: 50%; background: #ffd58a; box-shadow: 0 0 8px 2px rgba(255, 170, 70, .9); pointer-events: none; z-index: 6; }
+.smoke { position: absolute; width: 14px; height: 14px; border-radius: 50%; pointer-events: none; z-index: 6; background: radial-gradient(circle, rgba(230, 220, 210, .55), rgba(230, 220, 210, 0) 70%); }
+.blow { position: absolute; left: 39.3%; top: 20%; width: 13%; height: 18%; transform: translate(-50%, -50%); border: 0; background: transparent; border-radius: 50%; cursor: pointer; z-index: 7; }
+.blow:focus-visible { outline: 2px dashed #ffcf8f; }
+.scroll-cue { position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%); display: grid; justify-items: center; gap: 8px; font: 600 11px/1 var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: #a8958a; opacity: calc(1 - var(--p, 0) * 3); }
+.scroll-cue i { width: 1px; height: 38px; background: linear-gradient(#a8958a, transparent); animation: cue 2s ease-in-out infinite; transform-origin: top; }
+@keyframes cue { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); } 100% { transform: scaleY(1); opacity: 0; } }
+
+/* ——— Sections ——— */
+section.blk { padding-block: 96px; }
+.sec-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 36px; flex-wrap: wrap; }
+.sec-head h2 { font-size: clamp(1.9rem, 3.6vw, 3rem); }
+.sec-head p { color: var(--muted); max-width: 48ch; }
+.candles { padding-block: 40px 100px; }
+.candles .sec-head h2 em { color: var(--amber); }
+.lit-legend { display: inline-flex; align-items: center; gap: 12px; padding: 10px 16px 10px 12px; border-radius: 999px; border: 1px solid var(--line); font-size: 14px; color: var(--muted); }
+.lit-legend .mini { width: 22px; height: 28px; }
+.night .pmedia { background: radial-gradient(120% 80% at 50% 105%, #3c2b24 0%, #261b17 60%, #201714 100%); border: 1px solid rgba(255, 220, 190, .06); transition: box-shadow 1s ease, border-color 1s; }
+.pcard .pmedia .glow { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 1.2s ease; background: radial-gradient(70% 60% at var(--gx, 50%) var(--gy, 38%), rgba(255, 180, 100, .32), rgba(255, 150, 80, 0) 70%); }
+.pcard.lit .pmedia .glow { opacity: 1; }
+.pcard.lit .pmedia { border-color: rgba(255, 190, 120, .35); box-shadow: 0 20px 60px rgba(255, 150, 70, .12); }
+.pcard.lit .pimg img { filter: brightness(1.04) saturate(1.05); }
+.pimg .wk, .pimg-wrap .wk { position: absolute; left: 0; top: 0; width: 0; height: 0; z-index: 3; }
+.pimg-wrap .wk { opacity: 1; transition: opacity .3s; }
+.pimg-wrap.alt .wk { opacity: 0; }
+.mini { position: relative; display: inline-block; width: 20px; height: 26px; flex: none; }
+.mini svg { width: 100%; height: 100%; display: block; }
+.mini .flm { left: 50%; top: 36%; --fw: 8px; }
+.padd.litbtn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; }
+.pcard.lit .padd.litbtn { border-color: var(--amber); color: var(--ink); background: rgba(255, 184, 103, .1); }
+.padd.litbtn .l-on, .pcard.lit .padd.litbtn .l-off { display: none; }
+.pcard.lit .padd.litbtn .l-on { display: inline; }
+.btn-buy .mini { margin-right: 4px; }
+.pmain.lit { box-shadow: inset 0 0 120px rgba(255, 170, 90, .25); }
+.pmain .glow { position: absolute; inset: 0; pointer-events: none; opacity: 0; transition: opacity 1.2s; background: radial-gradient(60% 50% at 42% 40%, rgba(255, 180, 100, .3), transparent 70%); z-index: 2; }
+.pmain.lit .glow { opacity: 1; }
+.fly { position: fixed; left: 0; top: 0; width: 14px; height: 14px; margin: -7px 0 0 -7px; border-radius: 50%; z-index: 200; pointer-events: none;
+  background: radial-gradient(circle, #fff7d6 0%, #ffcb73 40%, rgba(255, 150, 60, 0) 72%); box-shadow: 0 0 22px 8px rgba(255, 170, 80, .55); }
+.tlink { border: 0; background: none; color: #ffcf8f; font-weight: 700; text-decoration: underline; padding: 0; margin-left: 4px; }
+
+.marquee { background: var(--night); color: #f0d9c6; overflow: hidden; padding: 18px 0; border-block: 1px solid rgba(255, 220, 190, .08); }
+.marquee .track { display: flex; gap: 44px; width: max-content; animation: marq 36s linear infinite; font-family: var(--f-display); font-style: italic; font-size: 1.4rem; white-space: nowrap; }
+.marquee span::after { content: "✦"; color: var(--amber); font-style: normal; margin-left: 44px; font-size: .9rem; vertical-align: middle; }
+@keyframes marq { to { transform: translateX(-50%); } }
+
+/* ——— Récit au défilement ——— */
+.story { position: relative; height: 340vh; background: linear-gradient(var(--night) 0, var(--cream) 18vh); }
+html.soir .story { background: var(--cream); }
+.story-pin { position: sticky; top: 0; height: 100vh; display: grid; align-items: center; overflow: hidden; }
+.story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding-top: 60px; }
+.story-art { position: relative; width: min(100%, 470px); justify-self: center; }
+.story-art svg { width: 100%; height: auto; overflow: visible; }
+.story h2 { font-size: clamp(2rem, 3.8vw, 3.1rem); margin: 12px 0 30px; }
+.ssteps { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.ssteps li { display: grid; grid-template-columns: 54px 1fr; gap: 16px; padding: 16px 18px; border-radius: 18px; opacity: .38; transition: opacity .5s, background .5s, transform .5s; }
+.ssteps li.on { opacity: 1; background: var(--blush); transform: translateX(6px); }
+.ssteps b { font-family: var(--f-display); font-size: 2.1rem; font-weight: 500; color: var(--terra); line-height: 1; }
+.ssteps h3 { font-size: 1.25rem; margin-bottom: 4px; }
+.ssteps p { font-size: 14.5px; color: var(--muted); }
+.sprog { height: 3px; background: var(--line); border-radius: 3px; margin-top: 22px; overflow: hidden; }
+.sprog span { display: block; height: 100%; width: calc(var(--sp, 0) * 100%); background: var(--terra-ink); }
+
+/* ——— Quiz parfum ——— */
+.quiz { display: grid; grid-template-columns: .9fr 1.1fr; gap: 50px; align-items: center; }
+.quiz-card { background: var(--blush); border-radius: 30px; padding: 34px; min-height: 420px; display: grid; align-content: start; gap: 18px; position: relative; overflow: hidden; }
+.qprog { display: flex; gap: 6px; }
+.qprog i { flex: 1; height: 4px; border-radius: 4px; background: var(--rose); }
+.qprog i.on { background: var(--terra-ink); }
+.quiz-card h3 { font-size: clamp(1.4rem, 2.4vw, 1.9rem); }
+.qopts { display: grid; gap: 10px; }
+.qopt { text-align: left; border: 1px solid var(--line); background: var(--cream); border-radius: 16px; padding: 16px 18px; font-size: 15.5px; display: flex; justify-content: space-between; align-items: center; transition: border-color .2s, transform .2s; }
+.qopt:hover { border-color: var(--terra-ink); transform: translateX(4px); }
+.qopt::after { content: "→"; color: var(--terra-ink); }
+.qres { display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: center; animation: swap .6s cubic-bezier(.2, .8, .2, 1); }
+.qres .pic { position: relative; aspect-ratio: 1; border-radius: 50%; background: var(--rose); display: grid; place-items: center; }
+.qres .pic img { width: 76%; }
+.qres .scentname { font-family: var(--f-display); font-style: italic; color: var(--terra-ink); font-size: 1.6rem; }
+.qback { border: 0; background: none; color: var(--muted); text-decoration: underline; padding: 0; justify-self: start; font-size: 14px; }
+
+/* ——— Calendrier de l'Avent ——— */
+.avent .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: center; }
+.agrid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; perspective: 900px; }
+.door { position: relative; aspect-ratio: 4 / 5; border: 0; padding: 0; background: none; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.3, 1.3, .5, 1); }
+.door.open { transform: rotateY(-180deg); }
+.door > span { position: absolute; inset: 0; border-radius: 12px; display: grid; place-items: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+.door .f { font-family: var(--f-display); font-size: 1.4rem; color: #fff; background: var(--terra); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .18); }
+.door:nth-child(3n) .f { background: #b9775b; } .door:nth-child(4n) .f { background: #d9a891; color: #2a1f1b; } .door:nth-child(5n) .f { background: #8d5540; }
+.door .b { transform: rotateY(180deg); background: #f6eee7; padding: 6px; }
+.door .b img { width: 80%; height: 70%; object-fit: contain; }
+.door:hover:not(.open) { transform: rotateY(-14deg); }
+.avent-note { font-size: 13px; color: var(--muted); margin-top: 12px; }
+
+.second { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+.second .duo { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.second figure { margin: 0; background: var(--blush); border-radius: 24px; padding: 24px; text-align: center; display: grid; gap: 10px; }
+.second figure img { height: 190px; object-fit: contain; margin-inline: auto; }
+.second figcaption { font-size: 13.5px; color: var(--muted); }
+.news { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; border-radius: 30px; padding: 50px; position: relative; overflow: hidden; background: var(--night); color: #e9dbd0; }
+.news h2 { color: #f6ebe1; font-size: clamp(1.6rem, 2.8vw, 2.3rem); }
+.news p { color: #b8a497; margin-top: 8px; }
+.news form { display: flex; gap: 10px; flex-wrap: wrap; }
+.news input { flex: 1 1 220px; min-height: 52px; border-radius: 999px; border: 1px solid rgba(255, 230, 210, .2); background: rgba(255, 255, 255, .06); color: #fff; caret-color: #fff; padding: 0 22px; }
+.news input::placeholder { color: rgba(255,255,255,.88); opacity: 1; }
+.news .btn { color: #1c1411; background: #f0b48f; border-color: #f0b48f; }
+.news .nflame { position: absolute; right: 60px; top: 50%; width: 0; height: 0; }
+.news .nflame .flm { --fw: 26px; }
+
+.page-head { padding-block: 140px 30px; text-align: center; }
+.page-head h1 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); font-weight: 500; margin-top: 12px; }
+.page-head p { color: var(--muted); max-width: 60ch; margin: 16px auto 0; }
+.story2 { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; }
+.story2 img { width: min(360px, 100%); margin-inline: auto; }
+.story2 p + p { margin-top: 14px; }
+.steps3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.steps3 div { background: var(--blush); border-radius: 22px; padding: 26px; display: grid; gap: 10px; align-content: start; }
+.steps3 b { font-family: var(--f-display); font-size: 2.3rem; color: var(--terra); font-weight: 500; line-height: 1; }
+.steps3 p { font-size: 14.5px; color: var(--muted); }
+body:not([data-page="accueil"]) main > [data-view] { padding-top: 90px; }
+body[data-page="atelier"] main > [data-view], body[data-page="cadeaux"] main > [data-view] { padding-top: 0; }
+[data-view]:not([data-view="accueil"]) { animation: viewin .5s ease; }
+@keyframes viewin { from { opacity: 0; } }
+
+/* Mèche de progression livraison */
+.wickbar { position: relative; height: 8px; margin: 14px 6px 6px; border-radius: 8px; background: var(--rose); }
+.wickbar .wax { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 8px; background: linear-gradient(90deg, #e7b49d, #c6856a); transition: width .8s cubic-bezier(.2, .8, .2, 1); }
+.wickbar .tip { position: absolute; top: 0; width: 0; height: 0; transition: left .8s cubic-bezier(.2, .8, .2, 1); }
+.wickbar .tip .flm { --fw: 10px; }
+.cth .lf { position: absolute; left: 50%; top: 14%; width: 0; height: 0; }
+.cth .lf .flm { --fw: 8px; }
+.cempty .mini { width: 54px; height: 70px; }
+.cempty .mini .flm { --fw: 18px; }
+
+/* Lueur du curseur en mode soirée */
+#cursorLight { position: fixed; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; pointer-events: none; z-index: 1; opacity: 0; transition: opacity .6s;
+  background: radial-gradient(circle, rgba(255, 176, 96, .13), rgba(255, 150, 70, .04) 40%, transparent 70%); }
+html.soir #cursorLight { opacity: 1; }
+main, footer.site { position: relative; z-index: 2; }
+
+footer.site { background: #140e0c; color: rgba(255, 236, 220, .78); padding-block: 64px 96px; font-size: 14px; margin-top: 110px; }
+@media (max-width: 600px) { footer.site { margin-top: 72px; } }
+footer.site .cols { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 30px; }
+footer.site .flogo { width: 92px; height: 92px; background: #faf9f5; border-radius: 50%; padding: 4px; margin-bottom: 16px; }
+footer.site h4 { color: #f6ebe1; font-size: 1.05rem; margin-bottom: 14px; }
+footer.site ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 9px; }
+footer.site a { text-decoration: none; }
+footer.site a:hover { text-decoration: underline; }
+footer.site .legal { border-top: 1px solid rgba(255, 255, 255, .12); margin-top: 40px; padding-top: 20px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 13px; opacity: .8; }
+.pay { display: flex; gap: 6px; flex-wrap: wrap; }
+.pay span { border: 1px solid rgba(255, 255, 255, .25); border-radius: 6px; padding: 3px 7px; font: 600 11px/1.3 var(--f-label); }
+
+@media (max-width: 1020px) {
+  .quiz, .avent .wrap, .second, .story2 { grid-template-columns: 1fr; }
+  .steps3 { grid-template-columns: 1fr; }
+  footer.site .cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .nav-l { display: none; }
+  .burger { display: inline-grid; justify-self: start; }
+  .mnav { display: none; position: absolute; left: 0; right: 0; top: 100%; background: var(--cream); color: var(--ink); border-bottom: 1px solid var(--line); padding: 8px 20px 18px; }
+  .mnav.open { display: grid; }
+  .mnav a { text-decoration: none; padding: 14px 0; border-bottom: 1px solid var(--line); font-family: var(--f-display); font-size: 1.15rem; }
+  .soir-btn span { display: none; }
+  .soir-btn { padding: 8px; margin-right: 0; }
+  .nav-r .hide-m { display: none; }
+  .hero { height: auto; }
+  .hero-pin { position: relative; height: auto; min-height: 100svh; padding-block: 110px 70px; }
+  .hero-grid { grid-template-columns: 1fr; transform: none; padding-top: 0; }
+  .stage { order: -1; width: min(100%, 520px); }
+  .scroll-cue { display: none; }
+  .story { height: 300vh; }
+  .story-grid { grid-template-columns: 1fr; gap: 10px; padding-top: 70px; }
+  .story-art { width: min(64vw, 300px); }
+  .story h2 { margin-bottom: 12px; font-size: 1.7rem; }
+  .ssteps li { display: none; }
+  .ssteps li.on { display: grid; transform: none; }
+  .news { grid-template-columns: 1fr; padding: 34px 24px; }
+}
+@media (max-width: 600px) {
+  section.blk { padding-block: 64px; }
+  .agrid { grid-template-columns: repeat(4, 1fr); }
+  .qres { grid-template-columns: 1fr; }
+  .qres .pic { width: 150px; }
+  .quiz-card { padding: 24px; }
+  footer.site .cols { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .hero { height: auto; } .hero-pin { position: relative; } .story { height: auto; } .story-pin { position: relative; height: auto; padding-block: 80px; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <radialGradient id="flmO" cx=".5" cy=".8" r=".78"><stop offset="0" stop-color="#fffbea"/><stop offset=".28" stop-color="#ffe39a"/><stop offset=".6" stop-color="#ffa64d"/><stop offset=".86" stop-color="#ff7d33" stop-opacity=".75"/><stop offset="1" stop-color="#ff6a2a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="flmI" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fffef6" stop-opacity="0"/><stop offset=".45" stop-color="#fffdf2" stop-opacity=".95"/><stop offset="1" stop-color="#fff2c2"/></linearGradient>
+    <symbol id="flmShape" viewBox="0 0 40 100"><path d="M20 3C27.5 22 37.5 40 35.5 62C34 81 27.5 94 20 94C12.5 94 6 81 4.5 62C2.5 40 12.5 22 20 3Z" fill="url(#flmO)"/><path d="M20 38C24.5 50 28.5 61 27.5 72C26.5 84 23.5 91 20 91C16.5 91 13.5 84 12.5 72C11.5 61 15.5 50 20 38Z" fill="url(#flmI)"/><ellipse cx="20" cy="88" rx="4.6" ry="6.5" fill="#5f7dff" opacity=".38"/></symbol>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ead2ac"/><stop offset="1" stop-color="#c49b6c"/></linearGradient>
+  </defs>
+</svg>
+<div id="cursorLight" aria-hidden="true"></div>
+
+<header class="site" id="hdr">
+  <div class="wrap">
+    <nav class="nav-l" aria-label="Menu principal"><a href="#boutique" data-nav="boutique">Boutique</a><a href="#boutique-bougies">Bougies</a><a href="#cadeaux" data-nav="cadeaux">Idées cadeaux</a><a href="#atelier" data-nav="atelier">L’atelier</a></nav>
+    <button class="icon-btn burger" id="burger" aria-label="Ouvrir le menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <a class="brand" href="#accueil" aria-label="Accueil"><img src="img/logo.webp" alt="La P’tite Fabrique d’Agachaé"></a>
+    <div class="nav-r">
+      <button class="soir-btn" id="soirBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg><span>Mode soirée</span></button>
+      <button class="icon-btn" data-search-open aria-label="Rechercher"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg></button>
+      <a class="icon-btn hide-m" href="#boutique" aria-label="Favoris"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 20s-7.5-4.4-7.5-10A4.3 4.3 0 0 1 12 7.4 4.3 4.3 0 0 1 19.5 10c0 5.6-7.5 10-7.5 10Z"/></svg><span class="count" data-wish-count data-n="0">0</span></a>
+      <button class="icon-btn cartc" id="cartBtn" data-cart-open aria-label="Ouvrir le panier"><span class="cc"><svg class="pot" viewBox="0 0 26 32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 15h16l-1.4 12.2a2.5 2.5 0 0 1-2.5 2.3H8.9a2.5 2.5 0 0 1-2.5-2.3L5 15Z"/><ellipse cx="13" cy="15" rx="8" ry="2.2"/><path d="M13 14V9.5" stroke-linecap="round"/></svg><span class="flm" id="cartFlame"><span class="flm-halo"></span><span class="flm-lean"><span class="flm-grow"><span class="flm-flick"><svg class="flm-svg" viewBox="0 0 40 100"><use href="#flmShape"/></svg></span></span></span></span></span><span class="count" data-cart-count data-n="0">0</span></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu mobile"><a href="#boutique-bougies">Bougies</a><a href="#boutique-jesmonite">Jesmonite</a><a href="#boutique-bijoux">Bijoux & accessoires</a><a href="#boutique-pochettes">Pochettes & coffrets</a><a href="#cadeaux">Idées cadeaux</a><a href="#atelier">L’atelier</a></nav>
+</header>
+
+<main>
+<!-- ============ ACCUEIL ============ -->
+<div data-view="accueil">
+  <section class="hero" id="hero" aria-labelledby="h1">
+    <div class="hero-pin">
+      <div class="room" aria-hidden="true"></div>
+      <canvas id="embers" aria-hidden="true"></canvas>
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow">Bougies faites main · Pays de Caux</p>
+          <h1 id="h1">Allumez <em>la douceur</em></h1>
+          <p class="lead">Rose Illuminée : une cire parfumée Thé Chai Latte coulée à la main dans son pot en jesmonite, pour environ 30 heures de lumière.</p>
+          <div class="btns"><a class="btn" href="#bougies">Voir les bougies</a><button class="btn ghost" data-add="rose-illuminee">Rose Illuminée · 29 €</button></div>
+          <p class="hint" id="hint"><b>Approchez la souris</b> de la flamme, ou cliquez dessus pour la souffler.</p>
+        </div>
+        <div class="stage" id="stage">
+          <img class="stage-img" src="img/bougie-rose.webp" alt="Bougie Rose Illuminée, couvercle rose posé à côté du pot">
+          <img class="warm" src="img/bougie-rose.webp" alt="" aria-hidden="true">
+          <span class="waxlight" aria-hidden="true"></span>
+          <span class="flm" id="heroFlame"><span class="flm-halo"></span><span class="flm-lean"><span class="flm-grow"><span class="flm-flick"><svg class="flm-svg" viewBox="0 0 40 100"><use href="#flmShape"/></svg></span></span></span></span>
+          <div class="match" id="match" aria-hidden="true">
+            <svg viewBox="0 0 200 20"><rect x="14" y="6" width="184" height="8" rx="3" fill="url(#wood)"/><ellipse cx="13" cy="10" rx="12" ry="8.5" fill="#7a2a1c"/><ellipse cx="10" cy="8" rx="5" ry="3" fill="#a64532" opacity=".8"/></svg>
+            <span class="mfl"><span class="flm" id="matchFlame"><span class="flm-halo"></span><span class="flm-lean"><span class="flm-grow"><span class="flm-flick"><svg class="flm-svg" viewBox="0 0 40 100"><use href="#flmShape"/></svg></span></span></span></span></span>
+          </div>
+          <button class="blow" id="blow" aria-label="Souffler la flamme"></button>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true">Défiler<i></i></div>
+    </div>
+  </section>
+
+  <section class="night candles" id="bougies" aria-labelledby="h-candles">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Collection Automne / Hiver</p><h2 id="h-candles" style="margin-top:12px">Choisissez-la, <em>elle s’allume</em></h2></div>
+        <p class="lit-legend"><span class="mini on" aria-hidden="true"><svg viewBox="0 0 32 40"><path d="M7 21h18l-1.6 14.5a3 3 0 0 1-3 2.5h-8.8a3 3 0 0 1-3-2.5Z" fill="#e9cdc8"/><ellipse cx="16" cy="21" rx="9" ry="2.6" fill="#f7efe0"/><path d="M16 20v-5" stroke="#5b4a3f" stroke-width="1.8" stroke-linecap="round"/></svg><span class="flm on"><span class="flm-halo"></span><span class="flm-lean"><span class="flm-grow"><span class="flm-flick"><svg class="flm-svg" viewBox="0 0 40 100"><use href="#flmShape"/></svg></span></span></span></span></span>Chaque bougie ajoutée au panier s’allume.</p></div>
+      <div class="grid3" data-rail="bougies"></div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true"><div class="track"><span>Coulée à la main</span><span>Parfums de Grasse</span><span>Contenants en jesmonite</span><span>Petites séries</span><span>Pays de Caux</span><span>Coulée à la main</span><span>Parfums de Grasse</span><span>Contenants en jesmonite</span><span>Petites séries</span><span>Pays de Caux</span></div></div>
+
+  <section class="story" id="histoire" aria-labelledby="h-story">
+    <div class="story-pin">
+      <div class="wrap story-grid">
+        <div class="story-art" aria-hidden="true">
+          <svg viewBox="0 0 400 440" id="storySvg">
+            <defs>
+              <clipPath id="potClip"><path d="M100 200C100 300 112 372 150 384L250 384C288 372 300 300 300 200Z"/></clipPath>
+              <radialGradient id="sglow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#ffc47a" stop-opacity=".55"/><stop offset="1" stop-color="#ffa050" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle cx="200" cy="250" r="176" style="fill:var(--blush)"/>
+            <circle id="sGlow" cx="200" cy="170" r="190" fill="url(#sglow)" opacity="0"/>
+            <path id="sStream" d="M200 -20 C198 60 202 130 200 330" stroke="#f3e8d2" stroke-width="12" stroke-linecap="round" fill="none" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <g id="sPot" opacity="0">
+              <path d="M100 200C100 300 112 372 150 384L250 384C288 372 300 300 300 200Z" fill="#efcfc7"/>
+              <g clip-path="url(#potClip)" fill="none" stroke-linecap="round">
+                <path d="M90 250C140 230 170 290 230 260S290 300 320 280" stroke="#d99d90" stroke-width="7" opacity=".55"/>
+                <path d="M90 320C150 300 180 350 240 330S300 350 320 340" stroke="#c6856a" stroke-width="5" opacity=".45"/>
+                <path d="M90 290C120 284 150 300 170 296" stroke="#fff" stroke-width="5" opacity=".5"/>
+              </g>
+            </g>
+            <g clip-path="url(#potClip)"><rect id="sWax" x="90" y="384" width="220" height="0" fill="#f8f0e0"/></g>
+            <path id="sOutline" d="M100 200C100 300 112 372 150 384L250 384C288 372 300 300 300 200" fill="none" stroke="#a2654a" stroke-width="2.4" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            <g id="sRim" opacity="0"><ellipse cx="200" cy="200" rx="100" ry="24" fill="#e2b5aa"/><ellipse cx="200" cy="202" rx="88" ry="18" fill="#b98e83"/></g>
+            <ellipse id="sTop" cx="200" cy="203" rx="88" ry="17" fill="#fbf4e6" opacity="0"/>
+            <g id="sScent" fill="none" stroke-linecap="round" stroke-width="3">
+              <path d="M170 190C150 160 190 140 170 110S180 70 165 50" stroke="#a98fb8" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path d="M200 186C215 156 185 130 205 100S195 60 210 36" stroke="#e3b46d" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+              <path d="M232 190C252 160 222 140 242 112S232 74 250 54" stroke="#b07a52" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+            </g>
+            <g id="sLabels" font-family="Playfair Display, Georgia, serif" font-style="italic" font-size="15" fill="#a2654a" opacity="0"><text x="96" y="66">Violette</text><text x="214" y="30">Vanille</text><text x="258" y="70">Chai Latte</text></g>
+            <path id="sWick" d="M200 200V176" stroke="#5b4a3f" stroke-width="3.4" stroke-linecap="round" opacity="0"/>
+            <g id="sFlame" style="transform-origin:200px 178px;transform:scale(0)"><use href="#flmShape" x="186" y="120" width="28" height="60"/></g>
+          </svg>
+        </div>
+        <div>
+          <p class="eyebrow">De l’atelier à votre salon</p>
+          <h2 id="h-story">La naissance d’une bougie</h2>
+          <ol class="ssteps" id="ssteps">
+            <li class="on"><b>01</b><div><h3>Le contenant en jesmonite</h3><p>Coulé dans un moule, poncé puis fini à la main. Les marbrures rendent chaque pot unique.</p></div></li>
+            <li><b>02</b><div><h3>La cire coulée à la main</h3><p>Versée doucement dans son contenant, puis laissée à reposer le temps qu’il faut.</p></div></li>
+            <li><b>03</b><div><h3>Un parfum de Grasse</h3><p>Fleur de coton, vanille, violette, thé chai latte ou bois de oud : des fragrances choisies avec soin.</p></div></li>
+            <li><b>04</b><div><h3>La première flamme</h3><p>Chez vous. Et quand la bougie se termine, le contenant devient boîte à bijoux ou vide-poche.</p></div></li>
+          </ol>
+          <div class="sprog" id="sprog"><span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blk" id="quiz" aria-labelledby="h-quiz">
+    <div class="wrap quiz">
+      <div><p class="eyebrow">En 3 questions</p><h2 id="h-quiz" style="font-size:clamp(1.9rem,3.6vw,3rem);margin:12px 0 16px">Trouvez le parfum qui vous ressemble</h2><p style="color:var(--muted);max-width:44ch">Cinq fragrances de Grasse, une seule qui vous attend. Répondez sans réfléchir : la bonne bougie s’allumera.</p></div>
+      <div class="quiz-card" id="quizBox"></div>
+    </div>
+  </section>
+
+  <section class="blk night avent" id="avent" aria-labelledby="h-avent">
+    <div class="wrap">
+      <div><p class="eyebrow">Édition limitée · 95 €</p><h2 id="h-avent" style="font-size:clamp(1.9rem,3.6vw,3rem);margin:12px 0 16px">Le calendrier de l’Avent</h2><p style="color:var(--muted);max-width:46ch">24 surprises entre bijoux, jesmonite et petites attentions pour patienter jusqu’à Noël. Ouvrez quelques cases pour un avant-goût.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px"><button class="btn" data-add="calendrier-avent">Réserver le mien · 95 €</button><a class="btn ghost" href="#produit-calendrier-avent">Voir le détail</a></div>
+        <p class="avent-note">Aperçu : les compositions et coloris sont aléatoires.</p></div>
+      <div class="agrid" id="agrid"></div>
+    </div>
+  </section>
+
+  <section class="blk" style="background:var(--blush)" aria-label="Composer ses boucles"><div class="wrap"><div id="composer"></div></div></section>
+
+  <section class="blk" aria-labelledby="h-jes">
+    <div class="wrap">
+      <div class="sec-head"><div><p class="eyebrow">Coulé, poncé, fini à la main</p><h2 id="h-jes" style="margin-top:12px">La jesmonite</h2></div><a class="btn ghost" href="#boutique-jesmonite">Toute la jesmonite</a></div>
+      <div class="rail" data-rail="ids:boite-mesange,grand-coeur,boite-grande-rose,vide-poche-ovale,petit-coeur,boite-camelia"></div>
+    </div>
+  </section>
+
+  <section class="blk" style="padding-top:20px" aria-labelledby="h-second">
+    <div class="wrap second">
+      <div><p class="eyebrow">Une seconde vie</p><h2 id="h-second" style="font-size:clamp(1.9rem,3.4vw,2.7rem);margin:12px 0 16px">La flamme s’éteint, le contenant reste</h2><p style="color:var(--muted);max-width:50ch">Une fois la bougie terminée, nettoyez le contenant à l’eau chaude : il devient boîte à bijoux, vide-poche ou objet déco.</p></div>
+      <div class="duo"><figure><img src="img/bougie-sapin.webp" alt="" loading="lazy"><figcaption>Sapin Enchanté · bougie</figcaption></figure><figure><img src="img/bougie-sapin.webp" alt="" loading="lazy" style="transform:scaleX(-1)"><figcaption>Boîte Sapin de Noël · déco</figcaption></figure></div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="news">
+      <div><h2>Une lettre à la lueur des bougies</h2><p>Nouvelles collections, coulisses de l’atelier et dates des marchés, en avant-première.</p></div>
+      <form id="newsForm" novalidate><label class="sr-only" for="newsEmail">Votre adresse e-mail</label><input id="newsEmail" type="email" placeholder="Votre adresse e-mail" autocomplete="email"><button class="btn" type="submit">Je m’inscris</button></form>
+    </div>
+  </div>
+</div>
+
+<!-- ============ BOUTIQUE ============ -->
+<div data-view="boutique" hidden>
+  <section class="blk" style="padding-top:30px">
+    <div class="wrap">
+      <nav class="crumb" id="shopCrumb" aria-label="Fil d’Ariane"></nav>
+      <div class="shop">
+        <aside class="fside" id="shopFilters" aria-label="Filtres"></aside>
+        <div>
+          <div class="shop-top"><div><h1 id="shopTitle" style="font-size:clamp(2rem,3.4vw,2.8rem)">La boutique</h1><p id="shopCount" style="color:var(--muted)"></p></div>
+            <label><span class="sr-only">Trier</span><select id="sortSel"><option value="featured">Mise en avant</option><option value="asc">Prix croissant</option><option value="desc">Prix décroissant</option><option value="az">De A à Z</option></select></label></div>
+          <div class="grid3" id="shopGrid"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div data-view="produit" hidden><section class="blk" style="padding-top:30px"><div class="wrap" id="productMount"></div></section></div>
+
+<div data-view="cadeaux" hidden>
+  <header class="page-head wrap"><p class="eyebrow">Pour toutes les occasions</p><h1>Idées cadeaux</h1><p>Une attention pour une maîtresse, un coffret pour Noël, une bougie pour une amie : trouvez la bonne création selon votre budget.</p></header>
+  <section class="blk" style="padding-top:20px"><div class="wrap" id="giftMount"></div></section>
+</div>
+
+<div data-view="atelier" hidden>
+  <header class="page-head wrap"><p class="eyebrow">L’atelier</p><h1>Bienvenue dans mon univers</h1><p>Derrière chaque création, il y a du temps, de la passion et l’envie de vous proposer des pièces réalisées avec soin, de A à Z.</p></header>
+  <section class="blk" style="padding-top:30px"><div class="wrap story2"><img src="img/logo.webp" alt="Logo La P’tite Fabrique d’Agachaé" style="background:#faf9f5;border-radius:50%"><div><h2 style="font-size:clamp(1.7rem,3vw,2.3rem);margin-bottom:18px">Agathe + Sacha = Agachaé</h2><p>Je m’appelle Lucie, créatrice de La P’tite Fabrique d’Agachaé et maman de deux enfants, Agathe et Sacha. C’est de leurs prénoms qu’est né « Agachaé ».</p><p>Je réalise chaque pièce à la main, de la conception aux finitions, avec l’envie de créer des objets doux, poétiques et uniques. Commandes et renseignements en message privé ou par e-mail : laptitefabriquedagachae@gmail.com</p></div></div></section>
+  <section class="blk" style="padding-top:0"><div class="wrap steps3"><div><b>01</b><h3>La jesmonite</h3><p>Poudre minérale et résine acrylique, coulée, poncée et finie à la main.</p></div><div><b>02</b><h3>La bougie</h3><p>Cire parfumée aux fragrances de Grasse, coulée dans son contenant.</p></div><div><b>03</b><h3>Les bijoux</h3><p>Pâte polymère et finition résine UV pour la brillance et la protection.</p></div></div></section>
+</div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div><img class="flogo" src="img/logo.webp" alt=""><p>Créations artisanales<br>Pays de Caux · Normandie</p><p style="margin-top:8px">laptitefabriquedagachae@gmail.com</p></div>
+      <div><h4>Boutique</h4><ul><li><a href="#boutique-bougies">Bougies</a></li><li><a href="#boutique-jesmonite">Jesmonite</a></li><li><a href="#boutique-bijoux">Bijoux & accessoires</a></li><li><a href="#boutique-pochettes">Pochettes & coffrets</a></li><li><a href="#cadeaux">Idées cadeaux</a></li></ul></div>
+      <div><h4>Informations</h4><ul><li><a href="#atelier">L’atelier</a></li><li><a href="#quiz">Trouver mon parfum</a></li><li><a href="#accueil">Livraison & retours</a></li><li><a href="#accueil">CGV</a></li><li><a href="#accueil">Mentions légales</a></li></ul></div>
+      <div><h4>Suivez l’atelier</h4><ul><li><a href="https://www.instagram.com/laptitefabriquedagachae">Instagram</a></li><li><a href="https://www.instagram.com/laptitefabriquedagachae">Facebook</a></li></ul></div>
+    </div>
+    <div class="legal"><span>© 2026 La P’tite Fabrique d’Agachaé · Fait main en Normandie</span><div class="pay"><span>CB</span><span>Visa</span><span>Mastercard</span><span>Apple Pay</span><span>Google Pay</span><span>PayPal</span></div></div>
+  </div>
+</footer>
+
+<div class="search-layer" id="searchLayer" role="dialog" aria-label="Recherche">
+  <div class="search-box"><div class="wrap">
+    <div class="search-row"><label class="sr-only" for="searchInput">Rechercher une création</label><input id="searchInput" type="search" placeholder="Rechercher une bougie, un bijou…" autocomplete="off"><button class="icon-btn" data-search-close aria-label="Fermer la recherche"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+    <div id="searchResults"></div>
+  </div></div>
+</div>
+<div class="cart-overlay" id="cartOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer" aria-label="Panier" aria-hidden="true">
+  <div class="cart-head"><h2>Votre panier</h2><button class="icon-btn" data-close-cart aria-label="Fermer le panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
+  <div id="shipBar"></div><div id="cartBody"></div><div id="cartFoot"></div>
+</aside>
+<div class="sticky-buy" id="stickyBuy"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<nav class="mq-nav" aria-label="Changer de maquette"><a class="mq-home" href="index.html">← <span class="mq-long">Les 3 versions</span></a><a href="essentielle.html">1 · Essentielle</a><a href="signature.html">2 · Signature</a><a href="lumiere.html" aria-current="page">3 · Lumière</a><a class="mq-mob" href="mobile.html#lumiere"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></nav>
+
+<script src="assets/data.js"></script>
+<script src="assets/shop.js"></script>
+<script>
+(function () {
+  const { byId, src, eur, Cart, scents, products } = AGA;
+  const $ = (s, r = document) => r.querySelector(s), $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FL = (cls = '', style = '') => `<span class="flm ${cls}" style="${style}"><span class="flm-halo"></span><span class="flm-lean"><span class="flm-grow"><span class="flm-flick"><svg class="flm-svg" viewBox="0 0 40 100"><use href="#flmShape"/></svg></span></span></span></span>`;
+  const MINI = (on) => `<span class="mini" aria-hidden="true"><svg viewBox="0 0 32 40"><path d="M7 21h18l-1.6 14.5a3 3 0 0 1-3 2.5h-8.8a3 3 0 0 1-3-2.5Z" fill="#e9cdc8"/><ellipse cx="16" cy="21" rx="9" ry="2.6" fill="#f7efe0"/><path d="M16 20v-5" stroke="#5b4a3f" stroke-width="1.8" stroke-linecap="round"/></svg>${FL(on ? 'on' : '')}</span>`;
+  // position de la mèche visible sur l'image (en % de l'image)
+  const WICK = { 'rose-illuminee': { x: 39.3, y: 31.9, r: .036 }, 'vague-de-lumiere': { x: 50.2, y: 35.4, r: .05 } };
+  const inCart = (id) => Cart.items().some((l) => l.id === id);
+
+  /* ——— Allumage des cartes ——— */
+  function placeWicks(scope = document) {
+    $$('.wk', scope).forEach((w) => {
+      const img = w.parentElement.querySelector('img'); if (!img) return;
+      const go = () => { const d = WICK[w.dataset.id]; w.style.left = img.offsetLeft + img.offsetWidth * d.x / 100 + 'px'; w.style.top = img.offsetTop + img.offsetHeight * d.y / 100 + 'px'; w.style.setProperty('--fw', Math.max(7, img.offsetWidth * d.r) + 'px'); };
+      img.complete ? go() : img.addEventListener('load', go, { once: true });
+    });
+  }
+  function syncLit() {
+    $$('.pcard').forEach((c) => {
+      const p = byId[c.dataset.id]; if (!p || p.cat !== 'bougies') return;
+      const on = inCart(p.id); c.classList.toggle('lit', on); $$('.flm', c).forEach((f) => f.classList.toggle('on', on));
+    });
+    const pm = $('#pmain'); const id = (location.hash.match(/^#produit-(.+)$/) || [])[1];
+    if (pm && id && byId[id] && byId[id].cat === 'bougies') { const on = inCart(id); pm.classList.toggle('lit', on); $$('.flm', pm).forEach((f) => f.classList.toggle('on', on)); const bb = $('#buyBtn .flm'); bb && bb.classList.toggle('on', on); }
+  }
+  function fly(from) {
+    const to = $('#cartBtn').getBoundingClientRect(); const r = from ? from.getBoundingClientRect() : { left: innerWidth / 2, top: innerHeight / 2, width: 0, height: 0 };
+    const x0 = r.left + r.width / 2, y0 = r.top + r.height / 2, x1 = to.left + to.width / 2, y1 = to.top + to.height / 2;
+    const s = document.createElement('span'); s.className = 'fly'; document.body.appendChild(s);
+    const mx = (x0 + x1) / 2, my = Math.min(y0, y1) - 140;
+    const a = s.animate([{ transform: `translate(${x0}px,${y0}px) scale(.6)`, opacity: 1 }, { transform: `translate(${mx}px,${my}px) scale(1.3)`, opacity: 1, offset: .5 }, { transform: `translate(${x1}px,${y1}px) scale(.4)`, opacity: .6 }], { duration: RM ? 1 : 900, easing: 'cubic-bezier(.45,0,.25,1)' });
+    a.onfinish = () => { s.remove(); const b = $('#cartBtn'); b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); };
+  }
+
+  Shop.init({
+    freeShip: 45, titleSuffix: 'Lumière',
+    imgExtra: (p) => WICK[p.id] ? `<span class="wk" data-id="${p.id}">${FL(inCart(p.id) ? 'on' : '')}</span>` : '',
+    cardMedia: (p) => p.cat === 'bougies' ? '<span class="glow" aria-hidden="true"></span>' : '',
+    addLabel: (p) => p.cat === 'bougies' ? `${MINI(inCart(p.id))}<span class="l-off">Allumer · ${eur(p.price)}</span><span class="l-on">Allumée · dans le panier</span>` : 'Ajouter au panier',
+    addCls: (p) => p.cat === 'bougies' ? 'litbtn' : '',
+    buyLabel: (p) => p.cat === 'bougies' ? `${MINI(inCart(p.id))} Allumer · ajouter` : 'Ajouter au panier',
+    lineExtra: (l) => l.cat === 'bougies' ? `<span class="lf">${FL('on')}</span>` : '',
+    emptyArt: MINI(false),
+    shipBar: (left, pct) => `<p>${left > 0 ? `Plus que <strong>${eur(left)}</strong> pour la livraison offerte` : '<strong>Livraison offerte</strong> : la mèche est allumée'}</p><div class="wickbar"><span class="wax" style="width:${pct}%"></span><span class="tip" style="left:${pct}%">${FL(pct > 0 ? 'on' : '')}</span></div>`,
+    onAdd: (p, o, el) => {
+      fly(el);
+      setTimeout(syncLit, p.cat === 'bougies' ? 120 : 0);
+      if (p.id === 'rose-illuminee' && !$('#stage').classList.contains('lit') && document.body.dataset.page === 'accueil') ignite();
+      Shop.toast(p.cat === 'bougies' ? `<strong>${p.name}</strong> s’est allumée, elle est dans votre panier <button class="tlink" data-cart-open>Voir</button>` : `<strong>${p.name}</strong> ajouté au panier <button class="tlink" data-cart-open>Voir</button>`);
+    },
+    afterRender: () => { placeWicks(); syncLit(); },
+    afterCart: () => {
+      const n = Cart.count(), f = $('#cartFlame');
+      f.classList.toggle('on', n > 0); f.style.setProperty('--fw', (8 + Math.min(n, 4) * 1.4) + 'px');
+      syncLit();
+    },
+    onMainChange: (p, img) => { const w = $('#pimgWrap'); if (w) { w.classList.toggle('alt', img !== p.img || $('#mainImg').classList.contains('zoom')); setTimeout(() => placeWicks(w), 60); } },
+    onView: () => setTimeout(onScroll),
+  });
+  placeWicks(); syncLit();
+  addEventListener('resize', () => placeWicks());
+
+  /* ——— En-tête ——— */
+  const hdr = $('#hdr');
+  function onScroll() {
+    const home = document.body.dataset.page === 'accueil';
+    const heroEnd = home ? $('#hero').offsetHeight - 120 : 0;
+    hdr.classList.toggle('solid', !home || scrollY > heroEnd);
+    if (home) { heroProgress(); storyProgress(); }
+  }
+  let ticking = false; addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; onScroll(); }); } }, { passive: true });
+  const bg = $('#burger'), mn = $('#mnav');
+  bg.addEventListener('click', () => { const o = mn.classList.toggle('open'); bg.setAttribute('aria-expanded', o); });
+  mn.addEventListener('click', () => mn.classList.remove('open'));
+
+  /* ——— Mode soirée ——— */
+  const soir = $('#soirBtn'), cl = $('#cursorLight');
+  soir.addEventListener('click', () => { const on = document.documentElement.classList.toggle('soir'); soir.setAttribute('aria-pressed', on); Shop.toast(on ? 'Mode soirée : la boutique passe à la lueur des bougies' : 'Retour au mode jour'); });
+  let cx = 0, cy = 0, lx = 0, ly = 0;
+  addEventListener('pointermove', (e) => { cx = e.clientX; cy = e.clientY; }, { passive: true });
+  (function loop() { lx += (cx - lx) * .12; ly += (cy - ly) * .12; cl.style.transform = `translate(${lx}px,${ly}px)`; requestAnimationFrame(loop); })();
+
+  /* ——— Héros : l'allumage ——— */
+  const hero = $('#hero'), stage = $('#stage'), heroFlame = $('#heroFlame'), match = $('#match'), matchFlame = $('#matchFlame'), hint = $('#hint');
+  const TOUCH = matchMedia('(hover: none)').matches;
+  const HINT_ON = TOUCH ? '<b>Touchez la flamme</b> pour la souffler.' : '<b>Approchez la souris</b> de la flamme, ou cliquez dessus pour la souffler.';
+  hint.innerHTML = HINT_ON;
+  let timers = [];
+  const T = (ms, f) => timers.push(setTimeout(f, RM ? 0 : ms));
+  const setMatch = (x, y, show) => { match.style.setProperty('--mx', x); match.style.setProperty('--my', y); match.classList.toggle('show', !!show); };
+  const sw = () => stage.offsetWidth;
+  function sparks() {
+    const m = matchFlame.getBoundingClientRect(), s = stage.getBoundingClientRect();
+    const x = m.left - s.left, y = m.top - s.top;
+    for (let i = 0; i < 16; i++) {
+      const d = document.createElement('span'); d.className = 'spark'; d.style.left = x + 'px'; d.style.top = y + 'px'; stage.appendChild(d);
+      const a = Math.random() * Math.PI * 2, v = 20 + Math.random() * 46;
+      d.animate([{ transform: 'translate(0,0) scale(1)', opacity: 1 }, { transform: `translate(${Math.cos(a) * v}px,${Math.sin(a) * v - 14}px) scale(.2)`, opacity: 0 }], { duration: 500 + Math.random() * 400, easing: 'cubic-bezier(.2,.8,.2,1)' }).onfinish = () => d.remove();
+    }
+  }
+  function smoke() {
+    const s = stage.getBoundingClientRect(), f = heroFlame.getBoundingClientRect();
+    for (let i = 0; i < 9; i++) {
+      const d = document.createElement('span'); d.className = 'smoke'; d.style.left = (f.left - s.left - 7) + 'px'; d.style.top = (f.top - s.top - 7) + 'px'; stage.appendChild(d);
+      const dx = (Math.random() - .5) * 40;
+      d.animate([{ transform: 'translate(0,0) scale(.6)', opacity: .8 }, { transform: `translate(${dx * .4}px,-50px) scale(1.6)`, opacity: .5, offset: .4 }, { transform: `translate(${dx}px,-140px) scale(3.2)`, opacity: 0 }], { duration: 1800 + i * 180, delay: i * 90, easing: 'ease-out' }).onfinish = () => d.remove();
+    }
+  }
+  function ignite() {
+    timers.forEach(clearTimeout); timers = [];
+    const k = sw() / 720;
+    heroFlame.classList.remove('on'); matchFlame.classList.remove('on'); stage.classList.remove('lit'); hero.classList.remove('lit');
+    setMatch(420 * k, 170 * k, 0);
+    T(250, () => setMatch(120 * k, -70 * k, 1));
+    T(1150, () => { matchFlame.classList.add('on'); sparks(); });
+    T(1700, () => setMatch(14 * k, -6 * k, 1));
+    T(2350, () => { heroFlame.classList.add('on'); stage.classList.add('lit'); hero.classList.add('lit'); });
+    T(2900, () => setMatch(460 * k, 120 * k, 0));
+    T(3400, () => matchFlame.classList.remove('on'));
+    T(3500, () => { hint.innerHTML = HINT_ON; });
+  }
+  function blowOut() {
+    timers.forEach(clearTimeout); timers = [];
+    heroFlame.classList.remove('on'); stage.classList.remove('lit'); hero.classList.remove('lit'); smoke();
+    hint.innerHTML = TOUCH ? 'Soufflée. <b>Touchez la mèche</b> pour la rallumer.' : 'Soufflée. <b>Cliquez sur la mèche</b> pour la rallumer.';
+  }
+  $('#blow').addEventListener('click', () => (stage.classList.contains('lit') ? blowOut() : ignite()));
+  setTimeout(ignite, 400);
+
+  // la flamme se penche quand on approche la souris
+  const lean = heroFlame.querySelector('.flm-lean');
+  let tgt = 0, cur = 0, px = null, pv = 0, lastX = 0;
+  hero.addEventListener('pointermove', (e) => {
+    pv = e.clientX - lastX; lastX = e.clientX;
+    const f = heroFlame.getBoundingClientRect(), fx = f.left + f.width / 2, fy = f.top + f.height * .6;
+    const dx = e.clientX - fx, dy = e.clientY - fy, d = Math.hypot(dx, dy);
+    tgt = d < 240 ? -Math.sign(dx) * (1 - d / 240) * 22 : 0;
+    tgt += Math.max(-10, Math.min(10, -pv * .35));
+  }, { passive: true });
+  hero.addEventListener('pointerleave', () => { tgt = 0; });
+  (function leanLoop() { tgt *= .96; cur += (tgt - cur) * .14; lean.style.setProperty('--lean', cur.toFixed(2) + 'deg'); requestAnimationFrame(leanLoop); })();
+
+  // braises et poussières dans la lumière
+  const cv = $('#embers'), ctx = cv.getContext('2d'); let parts = [], W = 0, H = 0, DPR = Math.min(2, devicePixelRatio || 1);
+  function size() { W = cv.offsetWidth; H = cv.offsetHeight; cv.width = W * DPR; cv.height = H * DPR; ctx.setTransform(DPR, 0, 0, DPR, 0, 0); }
+  function sizeFlame() { heroFlame.style.setProperty('--fw', Math.max(12, stage.offsetWidth * .036) + 'px'); }
+  size(); sizeFlame(); addEventListener('resize', () => { size(); sizeFlame(); });
+  (function draw() {
+    requestAnimationFrame(draw);
+    if (RM || document.body.dataset.page !== 'accueil' || scrollY > hero.offsetHeight) return;
+    ctx.clearRect(0, 0, W, H);
+    const lit = stage.classList.contains('lit');
+    if (lit && parts.length < 46 && Math.random() < .5) {
+      const f = heroFlame.getBoundingClientRect(), c = cv.getBoundingClientRect();
+      parts.push({ x: f.left - c.left + f.width / 2 + (Math.random() - .5) * 260, y: f.top - c.top + 60 + Math.random() * 160, r: Math.random() * 1.8 + .4, vy: -(Math.random() * .35 + .12), vx: (Math.random() - .5) * .2, life: 0, max: 260 + Math.random() * 260, ph: Math.random() * 6 });
+    }
+    parts = parts.filter((p) => p.life < p.max);
+    parts.forEach((p) => {
+      p.life++; p.y += p.vy; p.x += p.vx + Math.sin((p.life + p.ph * 50) / 40) * .25;
+      const a = Math.sin(Math.PI * p.life / p.max) * (lit ? .8 : .3);
+      ctx.beginPath(); ctx.fillStyle = `rgba(255,${190 + (p.r * 20 | 0)},${120},${a})`; ctx.shadowColor = 'rgba(255,170,80,.9)'; ctx.shadowBlur = 8; ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.fill();
+    });
+  })();
+
+  function heroProgress() {
+    if (innerWidth <= 860) { hero.style.setProperty('--p', 0); return; }
+    const r = hero.getBoundingClientRect(); const p = Math.max(0, Math.min(1, -r.top / (r.height - innerHeight)));
+    hero.style.setProperty('--p', p.toFixed(3));
+  }
+
+  /* ——— Récit : la naissance d'une bougie ——— */
+  const story = $('#histoire'), steps = $$('#ssteps li');
+  const S = (id) => document.getElementById(id);
+  const cl01 = (v) => Math.max(0, Math.min(1, v));
+  function storyProgress() {
+    const r = story.getBoundingClientRect(); const p = cl01(-r.top / (r.height - innerHeight));
+    S('sOutline').style.strokeDashoffset = 1 - cl01(p / .12);
+    S('sPot').setAttribute('opacity', cl01((p - .08) / .1));
+    S('sRim').setAttribute('opacity', cl01((p - .1) / .08));
+    const pour = cl01((p - .25) / .2);
+    S('sStream').style.strokeDashoffset = p < .25 ? 1 : (p < .47 ? 0 : cl01((p - .47) / .04));
+    S('sStream').style.opacity = p > .24 && p < .52 ? 1 : 0;
+    const h = pour * 182; S('sWax').setAttribute('y', 384 - h); S('sWax').setAttribute('height', h);
+    S('sTop').setAttribute('opacity', cl01((p - .44) / .05));
+    $$('#sScent path').forEach((pa, i) => { pa.style.strokeDashoffset = 1 - cl01((p - .52 - i * .03) / .14); pa.style.opacity = p > .76 ? cl01(1 - (p - .76) / .08) : 1; });
+    S('sLabels').setAttribute('opacity', p > .58 && p < .82 ? 1 : 0);
+    S('sWick').setAttribute('opacity', cl01((p - .74) / .04));
+    const fs = cl01((p - .8) / .07); S('sFlame').style.transform = `scale(${fs})`;
+    S('sGlow').setAttribute('opacity', fs);
+    const idx = Math.min(3, Math.floor(p * 4)); steps.forEach((li, i) => li.classList.toggle('on', i === idx));
+    S('sprog').style.setProperty('--sp', p.toFixed(3));
+  }
+  // vacillement de la flamme du récit
+  (function sflick() { const f = S('sFlame'); if (f) { const t = Date.now() / 300; f.firstElementChild.setAttribute('transform', `translate(${Math.sin(t) * .6} 0) rotate(${Math.sin(t * 1.7) * 2} 200 178)`); } requestAnimationFrame(sflick); })();
+
+  /* ——— Quiz parfum ——— */
+  const Q = [
+    { q: 'Votre moment préféré pour allumer une bougie ?', a: [['Le matin, avec un café', { 'Fleur de coton': 2, Violette: 1 }], ['Un dimanche sous un plaid', { Vanille: 2, 'Thé Chai Latte': 1 }], ['Un dîner entre amis', { 'Bois de Oud': 2, 'Thé Chai Latte': 1 }]] },
+    { q: 'Quelle image vous parle le plus ?', a: [['Un bouquet de fleurs des champs', { Violette: 3 }], ['Une pâtisserie qui sort du four', { Vanille: 3 }], ['Un feu de cheminée', { 'Bois de Oud': 3 }], ['Une tasse de thé épicé', { 'Thé Chai Latte': 3 }], ['Des draps propres au soleil', { 'Fleur de coton': 3 }]] },
+    { q: 'C’est pour qui ?', a: [['Pour moi, je me fais plaisir', { _for: 'moi' }], ['Pour offrir', { _for: 'offrir' }]] },
+  ];
+  let qi = 0, score = {}, who = 'moi';
+  function quiz() {
+    const box = $('#quizBox');
+    if (qi < Q.length) {
+      const it = Q[qi];
+      box.innerHTML = `<div class="qprog">${Q.map((_, i) => `<i class="${i <= qi ? 'on' : ''}"></i>`).join('')}</div><p class="eyebrow">Question ${qi + 1} sur ${Q.length}</p><h3>${it.q}</h3><div class="qopts">${it.a.map((a, i) => `<button class="qopt" data-qa="${i}">${a[0]}</button>`).join('')}</div>`;
+      $$('[data-qa]', box).forEach((b) => b.addEventListener('click', () => { const w = it.a[+b.dataset.qa][1]; for (const k in w) { if (k === '_for') who = w[k]; else score[k] = (score[k] || 0) + w[k]; } qi++; quiz(); }));
+    } else {
+      const best = Object.entries(score).sort((a, b) => b[1] - a[1])[0][0];
+      const sc = scents.find((s) => s.name === best);
+      const pick = who === 'offrir' ? byId[best === 'Bois de Oud' || best === 'Vanille' ? 'bulle-d-hiver' : 'vague-de-lumiere'] : byId[best === 'Thé Chai Latte' ? 'rose-illuminee' : best === 'Bois de Oud' ? 'sapin-enchante' : 'douceur-camelia'];
+      box.innerHTML = `<div class="qprog">${Q.map(() => '<i class="on"></i>').join('')}</div><p class="eyebrow">Votre parfum</p>
+        <div class="qres"><div class="pic"><img src="${src(pick.img)}" alt="${pick.name}"></div><div><p class="scentname">${best}</p><p style="color:var(--muted);margin:4px 0 14px">${sc.note}. Nous vous conseillons <strong style="color:var(--ink)">${pick.name}</strong> ${who === 'offrir' ? 'à offrir' : 'pour vous'}, en parfum ${best}.</p>
+        <button class="btn" id="qAdd">${MINI(false)} Allumer · ${eur(pick.price)}</button></div></div><button class="qback" id="qRe">Recommencer le quiz</button>`;
+      $('#qAdd').addEventListener('click', (e) => { $('#qAdd .flm').classList.add('on'); Shop.add(pick.id, { scent: best }, e.currentTarget); });
+      $('#qRe').addEventListener('click', () => { qi = 0; score = {}; quiz(); });
+    }
+  }
+  quiz();
+
+  /* ——— Calendrier de l'Avent ——— */
+  const gifts = ['pampille-ena', 'puce-etoile', 'petit-coeur', 'petite-pince-festons', 'pampille-flora', 'puce-coeur', 'grande-pince-goutte', 'pampille-esme', 'puce-fleur', 'pampille-mely', 'petite-pince-fleurie', 'pampille-yse'];
+  const order = [7, 15, 2, 21, 10, 4, 18, 1, 13, 24, 6, 11, 19, 3, 16, 9, 22, 5, 14, 20, 8, 12, 17, 23];
+  $('#agrid').innerHTML = order.map((n, i) => `<button class="door" aria-label="Ouvrir la case ${n}"><span class="f">${n}</span><span class="b"><img src="${src(gifts[i % gifts.length])}" alt="" loading="lazy"></span></button>`).join('');
+  $('#agrid').addEventListener('click', (e) => { const d = e.target.closest('.door'); if (d) d.classList.toggle('open'); });
+
+  /* ——— Lettre ——— */
+  $('#newsForm').addEventListener('submit', (e) => {
+    e.preventDefault(); const v = $('#newsEmail').value.trim();
+    if (!/^\S+@\S+\.\S+$/.test(v)) { Shop.toast('Saisissez une adresse e-mail valide, par exemple prenom@mail.fr'); return; }
+    e.currentTarget.innerHTML = '<p style="font-weight:600;color:#ffcf8f">Merci, à très vite à la lueur d’une bougie.</p>';
+  });
+
+  onScroll();
+})();
+</script>
+</body>
+</html>

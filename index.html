@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique Agachaé · 3 maquettes</title>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* Page de présentation : trois versions côte à côte, du plus simple au plus immersif, puis le comparatif et le bonus logo */
+.eyebrow { font: 600 12px/1.2 var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--terra-ink); }
+.intro { padding-block: 56px 36px; text-align: center; position: relative; overflow: hidden; }
+.intro .logo { width: 120px; height: 120px; margin: 0 auto 22px; }
+.intro h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 500; margin: 14px auto 18px; max-width: 18ch; }
+.intro h1 em { color: var(--terra-ink); }
+.intro p { color: var(--muted); max-width: 62ch; margin-inline: auto; }
+.intro .arche { position: absolute; left: -60px; bottom: -20px; width: 260px; opacity: .5; }
+.intro .vague { position: absolute; right: -60px; top: 20px; width: 300px; opacity: .45; }
+
+.versions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; padding-bottom: 70px; }
+.v { position: relative; background: #fff; border: 1px solid var(--line); border-radius: 26px; padding: 18px 18px 24px; display: flex; flex-direction: column; gap: 16px; transition: transform .3s, box-shadow .3s; }
+.v:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(110, 72, 56, .12); }
+.v.top { background: #241a16; border-color: #241a16; color: #e9dbd0; }
+.v.top h2 { color: #f6ebe1; }
+.v.top .eyebrow { color: #f0b48f; }
+.shots { position: relative; padding: 0 30px 28px 0; }
+.browser { border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(60, 40, 30, .14); background: #ddd; }
+.browser .bar { height: 22px; background: #efe9e4; display: flex; align-items: center; gap: 5px; padding-inline: 10px; }
+.v.top .browser .bar { background: #3a2c26; }
+.browser .bar i { width: 7px; height: 7px; border-radius: 50%; background: #d4c4ba; }
+.browser img { width: 100%; aspect-ratio: 1440 / 900; object-fit: cover; object-position: top; }
+.phone { position: absolute; right: 0; bottom: 0; width: 26%; border-radius: 16px; border: 4px solid #2a201c; overflow: hidden; box-shadow: 0 12px 30px rgba(0, 0, 0, .25); background: #2a201c; }
+.phone img { width: 100%; aspect-ratio: 390 / 844; object-fit: cover; object-position: top; }
+.v h2 { font-size: 1.9rem; }
+.v .tag { position: absolute; top: 28px; left: 28px; z-index: 2; background: var(--cream); color: var(--terra-ink); border-radius: 999px; padding: 7px 12px; font: 600 11px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; box-shadow: 0 4px 14px rgba(0, 0, 0, .1); }
+.v.top .tag { background: #f0b48f; color: #241a16; }
+.v p.pitch { color: var(--muted); font-size: 15px; }
+.v.top p.pitch { color: #c4b0a3; }
+.v ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; font-size: 14.5px; }
+.v li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; }
+.v li::before { content: ""; width: 8px; height: 8px; margin-top: 8px; border-radius: 50%; background: var(--terra); }
+.v.top li::before { background: #ffb867; box-shadow: 0 0 10px 2px rgba(255, 170, 80, .6); }
+.open { margin-top: auto; display: inline-flex; justify-content: center; align-items: center; gap: 8px; min-height: 50px; border-radius: 999px; background: var(--terra-ink); color: #fff; text-decoration: none; font: 600 13px/1 var(--f-label); letter-spacing: .08em; text-transform: uppercase; }
+.open:hover { background: #8d5540; }
+.acts { margin-top: auto; display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+.acts .open { margin-top: 0; }
+.mob { display: inline-flex; align-items: center; gap: 8px; min-height: 50px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--terra-ink); color: var(--terra-ink); text-decoration: none; font: 600 13px/1 var(--f-label); letter-spacing: .06em; text-transform: uppercase; }
+.mob svg { width: 18px; height: 18px; }
+.mob:hover { background: var(--blush); }
+.v.top .mob { border-color: #f0b48f; color: #f0b48f; }
+.v.top .mob:hover { background: rgba(240,180,143,.12); }
+.intro .cta { display: inline-flex; margin-top: 22px; }
+.v.top .open { background: #f0b48f; color: #241a16; }
+.v.top .open:hover { background: #ffd2b0; }
+
+.compare { padding-block: 30px 70px; }
+.compare h2, .bonus h2, .inc h2 { font-size: clamp(1.8rem, 3.4vw, 2.6rem); margin: 10px 0 24px; }
+.tw { overflow-x: auto; border: 1px solid var(--line); border-radius: 22px; background: #fff; }
+table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 640px; }
+th, td { padding: 13px 18px; text-align: left; border-bottom: 1px solid var(--line); }
+thead th { font: 600 12px/1.2 var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--ink); background: var(--blush); }
+thead th:not(:first-child), td:not(:first-child) { text-align: center; width: 17%; }
+tbody tr:last-child td { border-bottom: 0; }
+tr.grp td { background: var(--cream); font-family: var(--f-display); font-weight: 600; color: var(--ink); font-size: 1.05rem; }
+.y { display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--terra-ink); color: #fff; font-size: 13px; font-weight: 700; }
+.n { color: #c9b8ae; }
+td small { color: var(--muted); font-size: 12.5px; }
+
+.inc { padding-bottom: 70px; }
+.inc .cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.inc .c { background: var(--blush); border-radius: 20px; padding: 22px; display: grid; gap: 8px; align-content: start; }
+.inc .c h3 { font-size: 1.15rem; }
+.inc .c p { font-size: 14px; color: var(--muted); }
+.inc svg { width: 30px; height: 30px; color: var(--terra-ink); }
+
+.bonus { background: var(--rose); padding-block: 70px; }
+.bonus .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: center; }
+.bonus p { color: var(--ink); max-width: 46ch; }
+.bonus .lg { display: grid; grid-template-columns: 1fr 1.4fr; grid-template-rows: auto auto; gap: 14px; }
+.bonus .lg a { background: var(--cream); border-radius: 20px; display: grid; place-items: center; padding: 20px; text-decoration: none; position: relative; transition: transform .25s; }
+.bonus .lg a:hover { transform: translateY(-3px); }
+.bonus .lg a:first-child { grid-row: span 2; }
+.bonus .lg img { max-height: 210px; }
+.bonus .lg span { position: absolute; left: 14px; top: 12px; font: 600 11px/1 var(--f-label); letter-spacing: .1em; color: var(--terra-ink); }
+.bonus .open { padding-inline: 26px; margin-top: 24px; }
+footer.f { padding-block: 34px 90px; font-size: 13px; color: var(--muted); }
+footer.f .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+@media (max-width: 1020px) { .versions { grid-template-columns: 1fr; max-width: 640px; margin-inline: auto; } .inc .cards { grid-template-columns: 1fr 1fr; } .bonus .wrap { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .inc .cards { grid-template-columns: 1fr; } .bonus .lg { grid-template-columns: 1fr; } .bonus .lg a:first-child { grid-row: auto; } .intro .arche, .intro .vague { display: none; } }
+</style>
+<script>
+/* Liens directs depuis le PDF : #essentielle, #signature, #lumiere, #logos, #mobile-essentielle… */
+(function () { var m = { essentielle: 'essentielle.html', signature: 'signature.html', lumiere: 'lumiere.html', logos: 'logos.html', mobile: 'mobile.html', 'mobile-essentielle': 'mobile.html#essentielle', 'mobile-signature': 'mobile.html#signature', 'mobile-lumiere': 'mobile.html#lumiere' };
+  var h = location.hash.slice(1); if (m[h]) location.replace(m[h]); })();
+</script>
+</head>
+<body>
+<header class="intro">
+  <img class="arche" src="img/arche.webp" alt="">
+  <img class="vague" src="img/vague.webp" alt="">
+  <div class="wrap">
+    <img class="logo" src="img/logo.webp" alt="La P’tite Fabrique d’Agachaé">
+    <p class="eyebrow">Proposition de boutique en ligne</p>
+    <h1>Trois maquettes pour <em>votre future boutique</em></h1>
+    <p>Trois niveaux de site, construits avec vos créations, vos prix, vos couleurs et vos polices du catalogue Automne/Hiver. Chaque maquette est cliquable : parcourez la boutique, ouvrez une fiche, ajoutez au panier.</p>
+    <a class="mob cta" href="mobile.html#essentielle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Voir les 3 versions sur téléphone</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap versions">
+    <article class="v">
+      <span class="tag">Simple</span>
+      <div class="shots"><div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/shots/essentielle.webp" alt="Aperçu ordinateur de la version Essentielle"></div><div class="phone"><img src="img/shots/essentielle-m.webp" alt="Aperçu mobile de la version Essentielle"></div></div>
+      <p class="eyebrow">Version 1</p>
+      <h2>Essentielle</h2>
+      <p class="pitch">Une boutique claire et rassurante sur une seule page : tout est visible d’un coup d’œil.</p>
+      <ul><li>Accueil, collections et boutique filtrable</li><li>Fenêtre produit avec parfum ou modèle</li><li>Panier latéral et commande sécurisée</li><li>Votre histoire et l’inscription aux nouveautés</li></ul>
+      <div class="acts"><a class="open" href="essentielle.html">Ouvrir la maquette</a><a class="mob" href="mobile.html#essentielle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></div>
+    </article>
+    <article class="v">
+      <span class="tag">Intermédiaire</span>
+      <div class="shots"><div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/shots/signature.webp" alt="Aperçu ordinateur de la version Signature"></div><div class="phone"><img src="img/shots/signature-m.webp" alt="Aperçu mobile de la version Signature"></div></div>
+      <p class="eyebrow">Version 2</p>
+      <h2>Signature</h2>
+      <p class="pitch">Une boutique éditoriale de plusieurs pages, dans l’esprit des arches de votre catalogue.</p>
+      <ul><li>Fiches produit complètes : parfum, teinte, modèle</li><li>Composez vos boucles : créoles + pampilles</li><li>Idées cadeaux par budget, recherche, favoris</li><li>Livraison offerte et emballage cadeau dans le panier</li></ul>
+      <div class="acts"><a class="open" href="signature.html">Ouvrir la maquette</a><a class="mob" href="mobile.html#signature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></div>
+    </article>
+    <article class="v top">
+      <span class="tag">Top</span>
+      <div class="shots"><div class="browser"><div class="bar"><i></i><i></i><i></i></div><img src="img/shots/lumiere.webp" alt="Aperçu ordinateur de la version Lumière"></div><div class="phone"><img src="img/shots/lumiere-m.webp" alt="Aperçu mobile de la version Lumière"></div></div>
+      <p class="eyebrow">Version 3</p>
+      <h2>Lumière</h2>
+      <p class="pitch">Tout Signature, raconté par la flamme : une expérience dont on se souvient.</p>
+      <ul><li>Une allumette allume la bougie Rose Illuminée à l’arrivée</li><li>Chaque bougie ajoutée au panier s’allume</li><li>Mode soirée à la lueur des bougies</li><li>Naissance d’une bougie animée, quiz parfum, calendrier de l’Avent</li></ul>
+      <div class="acts"><a class="open" href="lumiere.html">Ouvrir la maquette</a><a class="mob" href="mobile.html#lumiere"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M11 18.5h2"/></svg>Vue mobile</a></div>
+    </article>
+  </div>
+
+  <section class="wrap compare" aria-labelledby="h-cmp">
+    <p class="eyebrow">Comparatif</p>
+    <h2 id="h-cmp">Ce que contient chaque version</h2>
+    <div class="tw"><table>
+      <thead><tr><th scope="col">Fonctionnalité</th><th scope="col">Essentielle</th><th scope="col">Signature</th><th scope="col">Lumière</th></tr></thead>
+      <tbody>
+        <tr class="grp"><td colspan="4">La boutique</td></tr>
+        <tr><td>Catalogue complet : bougies, jesmonite, bijoux, coffrets</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Panier et paiement sécurisé (CB, Apple Pay, PayPal…)</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Filtres de la boutique</td><td><small>par collection</small></td><td><small>collection, budget, parfum, teinte</small></td><td><small>collection, budget, parfum, teinte</small></td></tr>
+        <tr><td>Présentation du produit</td><td><small>fenêtre rapide</small></td><td><small>fiche complète</small></td><td><small>fiche complète</small></td></tr>
+        <tr><td>Recherche instantanée et favoris</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Méga-menu et pages Idées cadeaux, L’atelier</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr class="grp"><td colspan="4">Pour vendre plus</td></tr>
+        <tr><td>Barre « livraison offerte » dans le panier</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Emballage cadeau avec petit mot</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Petites attentions proposées dans le panier</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Composer ses boucles (créoles + pampilles)</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Quiz « Trouvez votre parfum »</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+        <tr><td>Calendrier de l’Avent interactif</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+        <tr class="grp"><td colspan="4">L’émotion</td></tr>
+        <tr><td>Animations douces au défilement</td><td class="n">–</td><td><span class="y">✓</span></td><td><span class="y">✓</span></td></tr>
+        <tr><td>Allumage de la bougie en motion design</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+        <tr><td>La bougie s’allume quand on l’ajoute au panier</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+        <tr><td>Mode soirée à la lueur des bougies</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+        <tr><td>Récit animé : la naissance d’une bougie</td><td class="n">–</td><td class="n">–</td><td><span class="y">✓</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="wrap inc" aria-labelledby="h-inc">
+    <p class="eyebrow">Dans les trois versions</p>
+    <h2 id="h-inc">Les fondations sont les mêmes</h2>
+    <div class="cards">
+      <div class="c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 10h18l-1.5 14a2 2 0 0 1-2 1.8h-11a2 2 0 0 1-2-1.8L6 10Z"/><path d="M11 10V8a4 4 0 0 1 8 0v2"/></svg><h3>Shopify</h3><p>Une boutique simple à gérer au quotidien : produits, stocks, commandes et paiements au même endroit.</p></div>
+      <div class="c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="13" cy="13" r="8"/><path d="M19 19l6 6"/></svg><h3>Google et Bing</h3><p>Titres, descriptions et données produit (prix, disponibilité) pensés pour apparaître dans les recherches.</p></div>
+      <div class="c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="9" y="3" width="12" height="24" rx="2.5"/><path d="M13 23h4"/></svg><h3>Mobile d’abord</h3><p>Chaque version s’adapte au téléphone, là où vos clientes vous découvrent depuis Instagram.</p></div>
+      <div class="c"><svg viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 4c4 5 5 8 0 11-5-3-4-6 0-11Z"/><path d="M15 15v3"/><rect x="8" y="18" width="14" height="9" rx="2"/></svg><h3>Votre univers</h3><p>Votre logo, vos couleurs, vos polices Playfair et Open Sans, et les textes de votre catalogue.</p></div>
+    </div>
+  </section>
+
+  <section class="bonus" aria-labelledby="h-bonus">
+    <div class="wrap">
+      <div><p class="eyebrow">Bonus</p><h2 id="h-bonus">Trois pistes pour faire évoluer le logo</h2><p>Les maquettes gardent votre logo actuel. En option, voici trois propositions plus affirmées qui conservent la terracotta, la bougie et le nom d’Agachaé.</p><a class="open" href="logos.html">Voir les pistes de logo</a></div>
+      <div class="lg">
+        <a href="logos.html#sceau"><span>A · LE SCEAU</span><img src="logos/A-sceau.svg" alt="Piste A, le sceau"></a>
+        <a href="logos.html#monogramme"><span>B · LE MONOGRAMME</span><img src="logos/B-monogramme.svg" alt="Piste B, le monogramme"></a>
+        <a href="logos.html#editorial"><span>C · L’ÉDITORIAL</span><img src="logos/C-editorial.svg" alt="Piste C, l’éditorial"></a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="f"><div class="wrap"><span>Maquettes non contractuelles. Les textes et prix viennent du catalogue Automne/Hiver 2026 ; les visuels marqués « provisoire » attendent vos photos.</span><span>Proposition préparée par SYNIUM</span></div></footer>
+</body>
+</html>

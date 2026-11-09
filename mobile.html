@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vue mobile · La P’tite Fabrique d’Agachaé</title>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600&family=Open+Sans:wght@400;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+<style>
+/* Aperçu mobile : la maquette tourne dans un téléphone de 390 × 844 px, on y navigue comme sur un vrai smartphone */
+html, body { height: 100%; }
+body { background: radial-gradient(90% 80% at 70% 40%, #f4ece6, #ece0d6); overflow: hidden; }
+.app { height: 100%; display: grid; grid-template-columns: minmax(280px, 380px) 1fr; gap: 40px; align-items: center; padding: 24px clamp(20px, 5vw, 70px); }
+.side { display: grid; gap: 18px; align-content: center; max-height: 100%; overflow-y: auto; scrollbar-width: thin; }
+.side img.logo { width: 84px; height: 84px; }
+.eyebrow { font: 600 12px/1.2 var(--f-label); letter-spacing: .16em; text-transform: uppercase; color: var(--terra-ink); }
+.side h1 { font-size: clamp(1.9rem, 3vw, 2.6rem); font-weight: 500; }
+.side p { color: var(--muted); font-size: 15px; }
+.tabs { display: grid; gap: 8px; }
+.tab { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 10px; text-align: left; border: 1px solid var(--line); background: #fff; border-radius: 16px; padding: 14px 16px; color: var(--ink); text-decoration: none; transition: border-color .2s, background .2s; }
+.tab strong { font-family: var(--f-display); font-size: 1.2rem; font-weight: 600; display: block; }
+.tab span { font-size: 13px; color: var(--muted); }
+.tab small { font: 600 10.5px/1 var(--f-label); letter-spacing: .1em; text-transform: uppercase; color: var(--terra-ink); }
+.tab[aria-current="true"] { border-color: var(--terra-ink); background: var(--blush); box-shadow: 0 0 0 1px var(--terra-ink); }
+.links { display: flex; gap: 10px; flex-wrap: wrap; font-size: 14px; }
+.links a { color: var(--terra-ink); font-weight: 600; text-underline-offset: 4px; }
+.stage { height: 100%; display: grid; place-items: center; min-width: 0; }
+.fit { position: relative; }
+.phone { position: relative; width: 414px; height: 868px; zoom: var(--s, 1); border-radius: 58px; background: #1d1614; padding: 12px;
+  box-shadow: 0 0 0 2px #3a2e2a, 0 40px 90px rgba(60, 35, 25, .35), inset 0 0 0 2px #000; }
+.screen { position: relative; width: 390px; height: 844px; border-radius: 46px; overflow: hidden; background: var(--sb, #faf9f5); display: flex; flex-direction: column; transition: background .4s; }
+.status { flex: none; height: 50px; display: flex; align-items: center; justify-content: space-between; padding: 6px 30px 0 34px; font: 600 15px/1 -apple-system, 'Segoe UI', sans-serif; color: var(--sc, #1d1614); }
+.status .ic { display: flex; gap: 6px; align-items: center; }
+.status svg { height: 12px; width: auto; fill: currentColor; }
+.screen iframe { flex: 1; width: 100%; border: 0; display: block; background: transparent; clip-path: inset(0 round 0 0 46px 46px); }
+.notch { position: absolute; left: 50%; top: 11px; transform: translateX(-50%); width: 112px; height: 32px; border-radius: 20px; background: #000; z-index: 2; pointer-events: none; }
+.btn-side { position: absolute; width: 4px; border-radius: 2px; background: #2c2320; }
+.b1 { left: -4px; top: 170px; height: 60px; } .b2 { left: -4px; top: 245px; height: 60px; } .b3 { right: -4px; top: 210px; height: 90px; }
+.hint { font-size: 13px; color: var(--muted); }
+@media (max-height: 820px) and (min-width: 861px) { .side { gap: 12px; } .side img.logo { width: 60px; height: 60px; } .side h1 { font-size: 1.7rem; } .tab { padding: 10px 14px; } .side p { font-size: 14px; } }
+@media (max-width: 860px) {
+  body { overflow: auto; }
+  .app { grid-template-columns: 1fr; height: auto; }
+  .side { justify-items: start; }
+  .stage { height: auto; padding-bottom: 40px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <img class="logo" src="img/logo.webp" alt="La P’tite Fabrique d’Agachaé">
+    <div><p class="eyebrow">Aperçu mobile</p><h1 style="margin-top:10px">Votre boutique sur téléphone</h1></div>
+    <p>C’est ainsi que la boutique s’affichera sur un smartphone. Faites défiler, ouvrez le menu, ajoutez au panier : tout fonctionne comme sur un vrai téléphone.</p>
+    <nav class="tabs" aria-label="Choisir une version">
+      <a class="tab" href="#essentielle" data-v="essentielle"><div><strong>Essentielle</strong><span>Une page claire et rassurante</span></div><small>Simple</small></a>
+      <a class="tab" href="#signature" data-v="signature"><div><strong>Signature</strong><span>Boutique éditoriale complète</span></div><small>Intermédiaire</small></a>
+      <a class="tab" href="#lumiere" data-v="lumiere"><div><strong>Lumière</strong><span>La bougie qui s’allume</span></div><small>Top</small></a>
+    </nav>
+    <p class="hint" id="hint"></p>
+    <div class="links"><a href="index.html">← Les 3 versions</a><a id="desk" href="essentielle.html">Voir en version ordinateur</a></div>
+  </aside>
+  <div class="stage">
+    <div class="fit" id="fit">
+      <div class="phone"><span class="btn-side b1"></span><span class="btn-side b2"></span><span class="btn-side b3"></span>
+        <div class="screen" id="screen"><div class="notch"></div><div class="status" aria-hidden="true"><span>9:41</span><span class="ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5.5" width="3" height="6.5" rx="1"/><rect x="10" y="3" width="3" height="9" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3" fill="none" stroke="currentColor"/><rect x="2.5" y="2.5" width="16" height="7" rx="1.5"/><rect x="23.5" y="4" width="2" height="4" rx="1"/></svg></span></div><iframe id="frame" name="apercu-mobile" title="Maquette en vue mobile" src="essentielle.html"></iframe></div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  const frame = document.getElementById('frame'), fit = document.getElementById('fit');
+  const hints = {
+    essentielle: 'Astuce : touchez une collection, puis un produit pour ouvrir sa fiche.',
+    signature: 'Astuce : ouvrez le menu ☰, une fiche produit, puis composez vos boucles sur l’accueil.',
+    lumiere: 'Astuce : la bougie s’allume à l’arrivée. Cliquez sur la flamme pour la souffler, puis allumez une bougie de la collection.',
+  };
+  function show() {
+    const v = ['essentielle', 'signature', 'lumiere'].includes(location.hash.slice(1)) ? location.hash.slice(1) : 'essentielle';
+    if (!frame.src.endsWith(v + '.html')) frame.src = v + '.html';
+    document.querySelectorAll('.tab').forEach((t) => t.setAttribute('aria-current', t.dataset.v === v));
+    document.getElementById('hint').textContent = hints[v];
+    document.getElementById('desk').href = v + '.html';
+    const sc = document.getElementById('screen'); sc.style.setProperty('--sb', v === 'lumiere' ? '#1d1614' : (v === 'signature' ? '#504444' : '#e9cdc8')); sc.style.setProperty('--sc', v === 'essentielle' ? '#1d1614' : '#fff');
+  }
+  function scale() {
+    const small = innerWidth <= 860;
+    const availH = small ? 760 : innerHeight - 48, availW = small ? innerWidth - 40 : fit.parentElement.clientWidth;
+    const s = Math.min(1, availH / 868, availW / 414);
+    fit.querySelector('.phone').style.setProperty('--s', s.toFixed(3));
+  }
+  addEventListener('hashchange', show); addEventListener('resize', scale);
+  show(); scale();
+})();
+</script>
+</body>
+</html>
